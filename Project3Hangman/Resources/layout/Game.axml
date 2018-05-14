@@ -10,5 +10,6 @@
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="312.5dp"
         android:layout_height="232.0dp"
-        android:id="@+id/imgHangman" />
+        android:id="@+id/imgHangman"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
