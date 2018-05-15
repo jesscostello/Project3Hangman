@@ -7,9 +7,218 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
-        android:src="@drawable/hangman"
+        android:src="@drawable/hangman1"
         android:layout_width="312.5dp"
         android:layout_height="232.0dp"
         android:id="@+id/imgHangman"
         android:layout_centerHorizontal="true" />
+    <TextView
+        android:text="This is where the word will go."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgHangman"
+        android:layout_marginTop="25px"
+        android:textColor="@color/abc_input_method_navigation_guard"
+        android:id="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="6"
+        android:layout_below="@id/textView1"
+        android:layout_marginTop="25px"
+        android:id="@+id/linTopRow">
+        <Button
+            android:text="A"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnA" />
+        <Button
+            android:text="B"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnB" />
+        <Button
+            android:text="C"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnC" />
+        <Button
+            android:text="D"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnD" />
+        <Button
+            android:text="E"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnE" />
+        <Button
+            android:text="F"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnF" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:layout_below="@id/linTopRow"
+        android:layout_marginTop="10px"
+        android:id="@+id/linSecondRow">
+        <Button
+            android:text="G"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnG" />
+        <Button
+            android:text="H"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnH" />
+        <Button
+            android:text="I"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnI" />
+        <Button
+            android:text="J"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnJ" />
+        <Button
+            android:text="K"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnK" />
+        <Button
+            android:text="L"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnL" />
+        <Button
+            android:text="M"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnM" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="6"
+        android:layout_below="@id/linSecondRow"
+        android:layout_marginTop="10px"
+        android:id="@+id/linThirdRow">
+        <Button
+            android:text="N"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnN" />
+        <Button
+            android:text="O"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnO" />
+        <Button
+            android:text="P"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnP" />
+        <Button
+            android:text="Q"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnQ" />
+        <Button
+            android:text="R"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnR" />
+        <Button
+            android:text="S"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnS" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:layout_below="@id/linThirdRow"
+        android:layout_marginTop="10px"
+        android:id="@+id/linBottomRow">
+        <Button
+            android:text="T"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnT" />
+        <Button
+            android:text="U"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnU" />
+        <Button
+            android:text="V"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnV" />
+        <Button
+            android:text="W"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnW" />
+        <Button
+            android:text="X"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnX" />
+        <Button
+            android:text="Y"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnY" />
+        <Button
+            android:text="Z"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnZ" />
+    </LinearLayout>
 </RelativeLayout>
