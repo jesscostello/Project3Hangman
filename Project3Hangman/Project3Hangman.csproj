@@ -105,28 +105,28 @@
     <AndroidResource Include="Resources\values\style.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman8.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman7.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman1.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman8.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman5.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman1.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman2.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman6.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman3.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman4.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman7.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman5.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hangman4.jpg" />
+    <AndroidResource Include="Resources\drawable\hangman6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
