@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Project3Hangman
 {
@@ -106,6 +107,7 @@ namespace Project3Hangman
             btnY.Click += onAnyLetterClick;
             btnZ.Click += onAnyLetterClick;
 
+            //CopyTheDB();
 
             // set word
             string wordToGuess = "test";
@@ -125,18 +127,15 @@ namespace Project3Hangman
             //  myword.Word = "Fake word";
 
             //  myList.Add(myword.Word);
-
-
             //  foreach (var item in Database.ViewAll())
             //  {
             //      myList.Add(item.Word);
             //  }
-
-
-
             //
             //  myList.Add(.ToString);
-            lv1.Adapter = new DataAdapter(this, myList);
+
+
+            //lv1.Adapter = new DataAdapter(this, myList);
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)
@@ -145,14 +144,40 @@ namespace Project3Hangman
             //Toast.MakeText(this, letter, ToastLength.Long).Show();
             //string result = db.SelectWord();
 
-            //string guessingWord = db.GetWords().ToString();
-            //Toast.MakeText(this, guessingWord, ToastLength.Long).Show();
-
+            //string guessingWord = Database.ViewAll().ToString();
+            string guessingWord = Database.GetWords().ToString();
+            Toast.MakeText(this, guessingWord, ToastLength.Long).Show();
+          
             Toast.MakeText(this, "testing", ToastLength.Long).Show();
 
             // disable button so it can't be clicked again
             (sender as Button).Enabled = false;
 
+        }
+
+
+        private void CopyTheDB()
+        {
+            // Check if your DB has already been extracted. If the file does not exist move it.
+            //WARNING!!!!!!!!!!! If your DB changes from the first time you install it, ie: you change the tables, and you get errors then comment out the if wrapper so that it is FORCED TO UPDATE. Otherwise you spend hours staring at code that should run OK but the db, that you can’t see inside of on your phone, is diffferent from the db you are coding to.
+            string dbName = "Hangman.db";
+            string dbPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), dbName);
+
+            //if (!File.Exists(dbPath))
+            //{
+            using (BinaryReader br = new BinaryReader(Assets.Open(dbName)))
+            {
+                using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+                {
+                    byte[] buffer = new byte[2048];
+                    int len = 0;
+                    while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        bw.Write(buffer, 0, len);
+                    }
+                }
+            }
+            //}
         }
     }
 }

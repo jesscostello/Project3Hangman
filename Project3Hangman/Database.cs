@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
+using Android.Util;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -11,24 +11,29 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using SQLite;
+using Environment = Android.OS.Environment;
 
 namespace Project3Hangman
 {
-    public static class Database
+    class Database
     {
-
-        public static SQLiteConnection db;
-        public static string databasePath;
-        public static string databaseName;
+        SQLiteConnection db;
+        //private static string databasePath;
+        //private static string databaseName;
         //Random chaos = new Random();
 
-        static Database()
+        public Database()
         {
-            databaseName = "Hangman.db";
-            databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
-            db = new SQLiteConnection(databasePath);
+            DBConnect();
 
-            db.CreateTable<words>();
+            //db.CreateTable<words>();
+        }
+
+        private void DBConnect()
+        {
+            //databaseName = "Hangman.db";
+            //databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
+            db = new SQLiteConnection(System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), "Hangman.db"));
         }
 
         //public IEnumerable<words> GetWords()
@@ -50,52 +55,57 @@ namespace Project3Hangman
         //    }
         //}
 
-        public static IEnumerable<words> ViewAll()
+        public IEnumerable<words> ViewAll()
         {
-            try
-            {
+            //try
+            //{
                 return db.Query<words>("SELECT * FROM words");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error:" + e.Message);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Error:" + e.Message);
 
-                //making some fake items to stop the system from crashing when the DB doesn't connect
-                List<words> fakeword = new List<words>();
-                //make a single item
-                words word = new words();
-                word.Id = 100;
-                word.Word = "Fake word";
-                fakeword.AddRange(new[] { word }); //add it to the fake item list
+            //    //making some fake items to stop the system from crashing when the DB doesn't connect
+            //    List<words> fakeword = new List<words>();
+            //    //make a single item
+            //    words word = new words();
+            //    word.Id = 100;
+            //    word.Word = "Fake word";
+            //    fakeword.AddRange(new[] { word }); //add it to the fake item list
 
-                return fakeword;
-            }
+            //    return fakeword;
+            //}
         }
 
-        public static words FakeEntry()
+        public List<words> GetWords()
         {
-            words word = new words();
-            word.Id = 1;
-            word.Word = "Fake word";
-            return word;
+            return db.Query<words>("SELECT * FROM words");
         }
 
-        public static string SelectWord()
-        {
-            string result = "blank";
+        //public static words FakeEntry()
+        //{
+        //    words word = new words();
+        //    word.Id = 1;
+        //    word.Word = "Fake word";
+        //    return word;
+        //}
 
-            try
-            {
-                result = db.Query<words>("SELECT Word FROM words WHERE Id = 2").ToString();
-            }
-            catch (Exception e)
-            {
+        //public static string SelectWord()
+        //{
+        //    string result = "blank";
 
-                result = e.Message;
-            }
+        //    try
+        //    {
+        //        result = db.Query<words>("SELECT Word FROM words WHERE Id = 2").ToString();
+        //    }
+        //    catch (Exception e)
+        //    {
 
-            return result;
-        }
+        //        result = e.Message;
+        //    }
+
+        //    return result;
+        //}
 
         //public string GetRandomWord()
         //{
