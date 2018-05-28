@@ -3,12 +3,16 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.V7.App;
 using System;
+using System.Collections.Generic;
 
 namespace Project3Hangman
 {
+    
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        // Database db = new Database();
+     //   Database db;
         Button btnA;
         Button btnB;
         Button btnC;
@@ -36,11 +40,14 @@ namespace Project3Hangman
         Button btnY;
         Button btnZ;
 
+        ListView lv1;
+        List<words> myList;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
+       
+            // Set our view from the Game layout resource
             SetContentView(Resource.Layout.Game);
 
             btnA = FindViewById<Button>(Resource.Id.btnA);
@@ -70,6 +77,8 @@ namespace Project3Hangman
             btnY = FindViewById<Button>(Resource.Id.btnY);
             btnZ = FindViewById<Button>(Resource.Id.btnZ);
 
+            lv1 = FindViewById<ListView>(Resource.Id.listView1);
+
             btnA.Click += onAnyLetterClick;
             btnB.Click += onAnyLetterClick;
             btnC.Click += onAnyLetterClick;
@@ -96,20 +105,54 @@ namespace Project3Hangman
             btnX.Click += onAnyLetterClick;
             btnY.Click += onAnyLetterClick;
             btnZ.Click += onAnyLetterClick;
+
+
+            // set word
+            string wordToGuess = "test";
+            int guesses = 0;
+            int score = 0;
+
+
+            //myList =(List<words>)Database.ViewAll();
+
+            // connect to db to find the word. 
+
+            //char letters = wordToGuess.Length;
+            //   myList = new List<words>();
+
+            //  words myword = new words();
+            ////  myword.Id = 100;   
+            //  myword.Word = "Fake word";
+
+            //  myList.Add(myword.Word);
+
+
+            //  foreach (var item in Database.ViewAll())
+            //  {
+            //      myList.Add(item.Word);
+            //  }
+
+
+
+            //
+            //  myList.Add(.ToString);
+            lv1.Adapter = new DataAdapter(this, myList);
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)
         {
             string letter = (sender as Button).Text;
-            Toast.MakeText(this, letter, ToastLength.Long).Show();
+            //Toast.MakeText(this, letter, ToastLength.Long).Show();
+            //string result = db.SelectWord();
+
+            //string guessingWord = db.GetWords().ToString();
+            //Toast.MakeText(this, guessingWord, ToastLength.Long).Show();
+
+            Toast.MakeText(this, "testing", ToastLength.Long).Show();
+
             // disable button so it can't be clicked again
             (sender as Button).Enabled = false;
-            // check if the letter is in the word
-            // if letter is in the word display it
-            // if it isn't change picture
-            // do some kind of scoring system
-            
+
         }
     }
 }
-
