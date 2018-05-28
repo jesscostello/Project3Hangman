@@ -9,7 +9,7 @@ namespace Project3Hangman
 {
     
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    public class GameActivity : AppCompatActivity
     {
         // Database db = new Database();
      //   Database db;
