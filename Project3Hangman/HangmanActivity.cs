@@ -1,19 +1,21 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Support.V7.App;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 
 namespace Project3Hangman
 {
-    
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
-    public class MainActivity : AppCompatActivity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    public class HangmanActivity : Activity
     {
-      
-     //   Database db;
         Button btnA;
         Button btnB;
         Button btnC;
@@ -43,13 +45,12 @@ namespace Project3Hangman
 
         ListView lv1;
         List<words> myList;
-  Database mydb = new Database();
-
+      
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-       
+
             // Set our view from the Game layout resource
             SetContentView(Resource.Layout.Game);
 
@@ -108,36 +109,6 @@ namespace Project3Hangman
             btnX.Click += onAnyLetterClick;
             btnY.Click += onAnyLetterClick;
             btnZ.Click += onAnyLetterClick;
-
-            //CopyTheDB();
-
-            // set word
-            string wordToGuess = "test";
-            int guesses = 0;
-            int score = 0;
-
-
-            //myList =(List<words>)Database.ViewAll();
-
-            // connect to db to find the word. 
-
-            //char letters = wordToGuess.Length;
-            //   myList = new List<words>();
-
-            //  words myword = new words();
-            ////  myword.Id = 100;   
-            //  myword.Word = "Fake word";
-
-            //  myList.Add(myword.Word);
-            //  foreach (var item in Database.ViewAll())
-            //  {
-            //      myList.Add(item.Word);
-            //  }
-            //
-            //  myList.Add(.ToString);
-
-
-            //lv1.Adapter = new DataAdapter(this, myList);
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)
@@ -148,14 +119,13 @@ namespace Project3Hangman
             //string result = db.SelectWord();
 
             //string guessingWord = Database.ViewAll().ToString();
-
+            Database mydb = new Database();
             string guessingWord = mydb.GetWords().ToString();
             Toast.MakeText(this, letter + " " + guessingWord, ToastLength.Long).Show();
-          
+
             // disable button so it can't be clicked again
             (sender as Button).Enabled = false;
         }
-
 
         private void CopyTheDB()
         {

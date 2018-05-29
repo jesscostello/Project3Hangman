@@ -33,7 +33,7 @@ namespace Project3Hangman
         {
             //databaseName = "Hangman.db";
             //databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
-            db = new SQLiteConnection(System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), "Hangman.db"));
+            db = new SQLiteConnection(Path.Combine(Environment.ExternalStorageDirectory.ToString(), "Hangman.db"));
         }
 
         //public IEnumerable<words> GetWords()
@@ -77,7 +77,7 @@ namespace Project3Hangman
             //}
         }
 
-        public List<words> GetWords()
+        public IEnumerable<words> GetWords()
         {
             return db.Query<words>("SELECT * FROM words");
         }
