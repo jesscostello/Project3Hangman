@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Environment = Android.OS.Environment;
 
 namespace Project3Hangman
 {
@@ -50,6 +51,8 @@ namespace Project3Hangman
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //CopyTheDB();
+            //gettheword();
 
             // Set our view from the Game layout resource
             SetContentView(Resource.Layout.Game);
@@ -81,8 +84,6 @@ namespace Project3Hangman
             btnY = FindViewById<Button>(Resource.Id.btnY);
             btnZ = FindViewById<Button>(Resource.Id.btnZ);
 
-            lv1 = FindViewById<ListView>(Resource.Id.listView1);
-
             btnA.Click += onAnyLetterClick;
             btnB.Click += onAnyLetterClick;
             btnC.Click += onAnyLetterClick;
@@ -109,46 +110,76 @@ namespace Project3Hangman
             btnX.Click += onAnyLetterClick;
             btnY.Click += onAnyLetterClick;
             btnZ.Click += onAnyLetterClick;
+            lv1 = FindViewById<ListView>(Resource.Id.listView1);
+            DoThis();
+        }
+
+        public void DoThis()
+        {
+            Database mydb = new Database();
+            myList = mydb.ViewAll();
+            lv1.Adapter = new DataAdapter(this, myList);
+            if (myList.Count() > 0)
+            {
+                var WordItem = myList[0];
+                string theword = WordItem.ToString();
+
+                Toast.MakeText(this, theword, ToastLength.Long).Show();
+            }
+            else
+            {
+                Toast.MakeText(this, "There is nothing in the list.", ToastLength.Long).Show();
+            }
+
+            
+            
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)
         {
             string letter = (sender as Button).Text;
 
-            //Toast.MakeText(this, letter, ToastLength.Long).Show();
-            //string result = db.SelectWord();
-
-            //string guessingWord = Database.ViewAll().ToString();
             Database mydb = new Database();
-            string guessingWord = mydb.GetWords().ToString();
+
+            string guessingWord = mydb.SelectWord();
+
             Toast.MakeText(this, letter + " " + guessingWord, ToastLength.Long).Show();
 
             // disable button so it can't be clicked again
             (sender as Button).Enabled = false;
         }
 
-        private void CopyTheDB()
-        {
-            // Check if your DB has already been extracted. If the file does not exist move it.
-            //WARNING!!!!!!!!!!! If your DB changes from the first time you install it, ie: you change the tables, and you get errors then comment out the if wrapper so that it is FORCED TO UPDATE. Otherwise you spend hours staring at code that should run OK but the db, that you can’t see inside of on your phone, is diffferent from the db you are coding to.
-            string dbName = "Hangman.db";
-            string dbPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), dbName);
+        //private void gettheword()
+        //{
+        //    Database mydb = new Database();
 
-            //if (!File.Exists(dbPath))
-            //{
-            using (BinaryReader br = new BinaryReader(Assets.Open(dbName)))
-            {
-                using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
-                {
-                    byte[] buffer = new byte[2048];
-                    int len = 0;
-                    while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        bw.Write(buffer, 0, len);
-                    }
-                }
-            }
-            //}
-        }
+        //    string guessingWord = mydb.GetWords().ToString();
+
+        //    Toast.MakeText(this, guessingWord, ToastLength.Long).Show();
+        //}
+
+        //private void CopyTheDB()
+        //{
+        //    // Check if your DB has already been extracted. If the file does not exist move it.
+        //    //WARNING!!!!!!!!!!! If your DB changes from the first time you install it, ie: you change the tables, and you get errors then comment out the if wrapper so that it is FORCED TO UPDATE. Otherwise you spend hours staring at code that should run OK but the db, that you can’t see inside of on your phone, is diffferent from the db you are coding to.
+        //    string dbName = "Hangman.db";
+        //    string dbPath = Path.Combine(System.Environment.SpecialFolder.Personal.ToString(), dbName);
+
+        //    //if (!File.Exists(dbPath))
+        //    //{
+        //        using (BinaryReader br = new BinaryReader(Assets.Open(dbName)))
+        //        {
+        //            using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+        //            {
+        //                byte[] buffer = new byte[2048];
+        //                int len = 0;
+        //                while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
+        //                {
+        //                    bw.Write(buffer, 0, len);
+        //                }
+        //            }
+        //        }
+        //    //}
+        //}
     }
 }

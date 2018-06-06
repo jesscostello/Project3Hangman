@@ -1,41 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Android.Util;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using SQLite;
-using Environment = Android.OS.Environment;
 
 namespace Project3Hangman
 {
     class Database
     {
         SQLiteConnection db;
-        //private static string databasePath;
-        //private static string databaseName;
-        //Random chaos = new Random();
+        private static string databasePath;
+        private static string databaseName;
+        private string tag = "aaa";
 
         public Database()
         {
             DBConnect();
-
-            //db.CreateTable<words>();
         }
 
         private void DBConnect()
         {
-            //databaseName = "Hangman.db";
-            //databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
-            db = new SQLiteConnection(Path.Combine(Environment.ExternalStorageDirectory.ToString(), "Hangman.db"));
+            databaseName = "Hangman.db";
+            databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseName);
+            
+            db = new SQLiteConnection(databasePath);
+                       db.CreateTable<words>();
         }
+        //public IEnumerable<words> ViewAll()
+        //{
+        //    //try
+        //    //{
+        //    return db.Query<words>("SELECT * FROM words");
+        //    //}
+        //    //catch (Exception e)
+        //    //{
+        //    //    Console.WriteLine("Error:" + e.Message);
 
+        //    //    //making some fake items to stop the system from crashing when the DB doesn't connect
+        //    //    List<words> fakeword = new List<words>();
+        //    //    //make a single item
+        //    //    words word = new words();
+        //    //    word.Id = 100;
+        //    //    word.Word = "Fake word";
+        //    //    fakeword.AddRange(new[] { word }); //add it to the fake item list
+
+        //    //    return fakeword;
+        //    //}
+        //}
         //public IEnumerable<words> GetWords()
         //{
         //    if (db.Table<words>().Count() > 0)
@@ -55,28 +66,6 @@ namespace Project3Hangman
         //    }
         //}
 
-        public IEnumerable<words> ViewAll()
-        {
-            //try
-            //{
-                return db.Query<words>("SELECT * FROM words");
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine("Error:" + e.Message);
-
-            //    //making some fake items to stop the system from crashing when the DB doesn't connect
-            //    List<words> fakeword = new List<words>();
-            //    //make a single item
-            //    words word = new words();
-            //    word.Id = 100;
-            //    word.Word = "Fake word";
-            //    fakeword.AddRange(new[] { word }); //add it to the fake item list
-
-            //    return fakeword;
-            //}
-        }
-
         public IEnumerable<words> GetWords()
         {
             return db.Query<words>("SELECT * FROM words");
@@ -90,32 +79,44 @@ namespace Project3Hangman
         //    return word;
         //}
 
-        //public static string SelectWord()
-        //{
-        //    string result = "blank";
+        public string SelectWord()
+        {
+            string result = "blank";
 
-        //    try
-        //    {
-        //        result = db.Query<words>("SELECT Word FROM words WHERE Id = 2").ToString();
-        //    }
-        //    catch (Exception e)
-        //    {
+            try
+            {
+                result = "this is " + db.Query<words>("SELECT Word FROM words WHERE Id = 2") + " inside";
+            }
+            catch (Exception e)
+            {
 
-        //        result = e.Message;
-        //    }
+                result = "Error: " + e.Message;
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
-        //public string GetRandomWord()
-        //{
-        //    string returnWord = "?ERROR?";
-        //    SQLiteConnection db = new SQLiteConnection(databasePath);
-        //    //db.CreateTable<words>();
-        //    //var table = db.Table<words>();
+        public List<words> ViewAll()
+        {
 
-        //    //returnWord = table.ElementAt(chaos.Next(1, 4)).word;
-        //    return returnWord;
-        //}
+            //if (!File.Exists(databasePath))
+            //{
+                List<words> NoData = new List<words>();
+
+                NoData.Add(new words { Word = "No Data" });
+                return NoData;
+
+            //}
+
+            //try
+            //{
+            //    return db.Query<words>("SELECT * FROM words");
+            //}
+            //catch (Exception e)
+            //{
+            //    Log.Info(tag, "ERROR Did the DB move across??:" + e.Message);
+            //    return null;
+            //}
+        }
     }
 }

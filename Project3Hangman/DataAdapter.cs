@@ -43,11 +43,15 @@ namespace Project3Hangman
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var word = items[position];
+            var item = items[position];
             var view = convertView;
             if (view == null)
-                view = context.LayoutInflater.Inflate(Resource.Layout.Game, null);
-            view.FindViewById<TextView>(Resource.Id.textView1).Text = word.Word;
+                //view = context.LayoutInflater.Inflate(Resource.Id.textView1, null);
+                //view.FindViewById<ListView>(Resource.Id.list_item) = "this is a test";
+                //view = context.LayoutInflater.Inflate(Resource.Layout.Game, null);
+                //view = context.LayoutInflater.Inflate(Resource.Layout.listView1, null);
+                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
+            view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
             return view;
         }
     }
