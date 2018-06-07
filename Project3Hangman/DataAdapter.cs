@@ -50,8 +50,10 @@ namespace Project3Hangman
                 //view.FindViewById<ListView>(Resource.Id.list_item) = "this is a test";
                 //view = context.LayoutInflater.Inflate(Resource.Layout.Game, null);
                 //view = context.LayoutInflater.Inflate(Resource.Layout.listView1, null);
+
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
-            view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
+                view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
+
             return view;
         }
     }

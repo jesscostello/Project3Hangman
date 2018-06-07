@@ -20,12 +20,57 @@ namespace Project3Hangman
 
         private void DBConnect()
         {
-            databaseName = "Hangman.db";
+            databaseName = "H2.db";
             databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseName);
-            
+          //  databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
+
             db = new SQLiteConnection(databasePath);
-                       db.CreateTable<words>();
+           // db.CreateTable<words>();
         }
+
+        public List<words> ViewAll()
+        {
+
+            //if (!File.Exists(databasePath))
+            //{
+                //List<words> NoData = new List<words>();
+
+                //NoData.Add(new words { Word = "No Data" });
+                //return NoData;
+
+            //}
+
+            //try
+            //{
+                var query = db.Query<words>("SELECT * FROM words");
+
+                if (query.Count > 0)
+                {
+                    //List<words> YesData = new List<words>();
+                    //return YesData;
+
+                    return db.Query<words>("SELECT * FROM words");
+                }
+                else
+                {
+                    List<words> NoData = new List<words>();
+                    //int count = query.Count;
+                    NoData.Add(new words { Word = "No Data "});
+                    NoData.Add(new words { Word = "testing"});
+                    NoData.Add(new words { Word = "hangman"});
+                    NoData.Add(new words { Word = "broken"});
+                return NoData;
+
+               }
+
+            //}
+            //catch (Exception e)
+            //{
+            //    Log.Info(tag, "ERROR Did the DB move across??:" + e.Message);
+            //    return null;
+            //}
+        }
+
         //public IEnumerable<words> ViewAll()
         //{
         //    //try
@@ -66,10 +111,10 @@ namespace Project3Hangman
         //    }
         //}
 
-        public IEnumerable<words> GetWords()
-        {
-            return db.Query<words>("SELECT * FROM words");
-        }
+        //public IEnumerable<words> GetWords()
+        //{
+        //    return db.Query<words>("SELECT * FROM words");
+        //}
 
         //public static words FakeEntry()
         //{
@@ -79,44 +124,21 @@ namespace Project3Hangman
         //    return word;
         //}
 
-        public string SelectWord()
-        {
-            string result = "blank";
+        //public string SelectWord()
+        //{
+        //    string result = "blank";
 
-            try
-            {
-                result = "this is " + db.Query<words>("SELECT Word FROM words WHERE Id = 2") + " inside";
-            }
-            catch (Exception e)
-            {
+        //    try
+        //    {
+        //        result = "this is " + db.Query<words>("SELECT Word FROM words WHERE Id = 2") + " inside";
+        //    }
+        //    catch (Exception e)
+        //    {
 
-                result = "Error: " + e.Message;
-            }
+        //        result = "Error: " + e.Message;
+        //    }
 
-            return result;
-        }
-
-        public List<words> ViewAll()
-        {
-
-            //if (!File.Exists(databasePath))
-            //{
-                List<words> NoData = new List<words>();
-
-                NoData.Add(new words { Word = "No Data" });
-                return NoData;
-
-            //}
-
-            //try
-            //{
-            //    return db.Query<words>("SELECT * FROM words");
-            //}
-            //catch (Exception e)
-            //{
-            //    Log.Info(tag, "ERROR Did the DB move across??:" + e.Message);
-            //    return null;
-            //}
-        }
+        //    return result;
+        //}
     }
 }
