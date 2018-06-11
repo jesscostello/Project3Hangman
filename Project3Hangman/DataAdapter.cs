@@ -45,14 +45,14 @@ namespace Project3Hangman
         {
             var item = items[position];
             var view = convertView;
-            if (view == null)
+            //if (view == null)
                 //view = context.LayoutInflater.Inflate(Resource.Id.textView1, null);
                 //view.FindViewById<ListView>(Resource.Id.list_item) = "this is a test";
                 //view = context.LayoutInflater.Inflate(Resource.Layout.Game, null);
                 //view = context.LayoutInflater.Inflate(Resource.Layout.listView1, null);
 
-                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
-                view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
+                //view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
+                //view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
 
             return view;
         }

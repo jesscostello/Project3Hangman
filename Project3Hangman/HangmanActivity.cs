@@ -17,6 +17,7 @@ namespace Project3Hangman
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class HangmanActivity : Activity
     {
+        #region instantiate buttons
         Button btnA;
         Button btnB;
         Button btnC;
@@ -43,20 +44,19 @@ namespace Project3Hangman
         Button btnX;
         Button btnY;
         Button btnZ;
-
+        #endregion
         ListView lv1;
         List<words> myList;
-      
+        public string theWordToGuess { get; set; }
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            //CopyTheDB();
-            //gettheword();
 
             // Set our view from the Game layout resource
             SetContentView(Resource.Layout.Game);
-
+            #region buttons
             btnA = FindViewById<Button>(Resource.Id.btnA);
             btnB = FindViewById<Button>(Resource.Id.btnB);
             btnC = FindViewById<Button>(Resource.Id.btnC);
@@ -83,7 +83,8 @@ namespace Project3Hangman
             btnX = FindViewById<Button>(Resource.Id.btnX);
             btnY = FindViewById<Button>(Resource.Id.btnY);
             btnZ = FindViewById<Button>(Resource.Id.btnZ);
-
+            #endregion
+            #region button clicks
             btnA.Click += onAnyLetterClick;
             btnB.Click += onAnyLetterClick;
             btnC.Click += onAnyLetterClick;
@@ -110,28 +111,41 @@ namespace Project3Hangman
             btnX.Click += onAnyLetterClick;
             btnY.Click += onAnyLetterClick;
             btnZ.Click += onAnyLetterClick;
-            lv1 = FindViewById<ListView>(Resource.Id.listView1);
-            DoThis();
+            #endregion
+
+            //lv1 = FindViewById<ListView>(Resource.Id.listView1);
+            GetAllWordsFromTheDatabase();
+
+            PickARandomWord();
         }
 
-        public void DoThis()
+        public void GetAllWordsFromTheDatabase()
         {
             Database mydb = new Database();
             myList = mydb.ViewAll();
-            lv1.Adapter = new DataAdapter(this, myList);
+            //lv1.Adapter = new DataAdapter(this, myList);
+            
+            //if (myList.Count() > 0)
+            //{
+            //    words WordItem = myList[1];
 
-            if (myList.Count() > 0)
-            {
-                words WordItem = myList[1];
+            //    string theword = WordItem.Word;
 
-                string theword = WordItem.Word;
+            //    Toast.MakeText(this, theword, ToastLength.Long).Show();
+            //}
+            //else
+            //{
+            //    Toast.MakeText(this, "There is nothing in the list.", ToastLength.Long).Show();
+            //}
+        }
 
-                Toast.MakeText(this, theword, ToastLength.Long).Show();
-            }
-            else
-            {
-                Toast.MakeText(this, "There is nothing in the list.", ToastLength.Long).Show();
-            }
+        private void PickARandomWord()
+        {
+            int Count = myList.Count();
+            Random myrnd = new Random();
+            int WordId = myrnd.Next(0, Count);
+
+            Toast.MakeText(this, WordId.ToString(), ToastLength.Long).Show();
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)

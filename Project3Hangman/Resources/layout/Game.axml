@@ -12,18 +12,11 @@
         android:layout_height="160.0dp"
         android:id="@+id/imgHangman"
         android:layout_centerHorizontal="true" />
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/imgHangman"
-        android:id="@+id/listView1" />
     <TextView
         android:text="_  _  _  _  _  _  _  _"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/listView1"
+        android:layout_below="@id/imgHangman"
         android:layout_marginTop="20px"
         android:textColor="@color/abc_input_method_navigation_guard"
         android:textSize="50px"
