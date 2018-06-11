@@ -17,6 +17,9 @@ namespace Project3Hangman
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class HangmanActivity : Activity
     {
+        public string theWordToGuess { get; set; }
+        //public ImageView HangmanImage { get; set; }
+
         #region instantiate buttons
         Button btnA;
         Button btnB;
@@ -47,7 +50,7 @@ namespace Project3Hangman
         #endregion
         ListView lv1;
         List<words> myList;
-        public string theWordToGuess { get; set; }
+        TextView lettersOfWord;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -113,6 +116,8 @@ namespace Project3Hangman
             btnZ.Click += onAnyLetterClick;
             #endregion
 
+            lettersOfWord = FindViewById<TextView>(Resource.Id.textView1);
+            lettersOfWord.Text = "";
             //lv1 = FindViewById<ListView>(Resource.Id.listView1);
             GetAllWordsFromTheDatabase();
 
@@ -145,7 +150,26 @@ namespace Project3Hangman
             Random myrnd = new Random();
             int WordId = myrnd.Next(0, Count);
 
-            Toast.MakeText(this, WordId.ToString(), ToastLength.Long).Show();
+            words WordItem = myList[WordId];
+            theWordToGuess = WordItem.Word.ToUpper();
+
+            // test to make sure we are getting a random id and the matching word
+            // todo delete
+            Toast.MakeText(this, WordId.ToString() + theWordToGuess, ToastLength.Long).Show();
+
+            LoadTheWord();
+        }
+
+        private void LoadTheWord()
+        {
+            char[] WordArray = new char[theWordToGuess.Length];
+            WordArray = theWordToGuess.ToCharArray();
+            for (int i = 0; i < WordArray.Length; i++)
+            {
+                //int letternumber = i + 1;
+                //Toast.MakeText(this, "Letter number " + letternumber + " is: " + WordArray[i], ToastLength.Short).Show();
+                lettersOfWord.Text += " _ ";
+            }
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)

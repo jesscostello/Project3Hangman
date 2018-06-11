@@ -19,6 +19,8 @@ namespace Project3Hangman
         public int Id { get; set; }
         public string Word { get; set; }
 
+        public char[] word { get; set; }
+
         public words()
         {
 
