@@ -22,54 +22,53 @@ namespace Project3Hangman
         {
             databaseName = "H2.db";
             databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseName);
-          //  databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
-
             db = new SQLiteConnection(databasePath);
-           // db.CreateTable<words>();
+           
+            // db.CreateTable<words>();
         }
 
         public List<words> ViewAll()
         {
-
-            //if (!File.Exists(databasePath))
-            //{
-                //List<words> NoData = new List<words>();
-
-                //NoData.Add(new words { Word = "No Data" });
-                //return NoData;
-
-            //}
-
-            //try
-            //{
-                var query = db.Query<words>("SELECT * FROM words");
-
-                if (query.Count > 0)
-                {
-                    //List<words> YesData = new List<words>();
-                    //return YesData;
-
-                    return db.Query<words>("SELECT * FROM words");
-                }
-                else
-                {
-                    List<words> NoData = new List<words>();
-                    //int count = query.Count;
-                    NoData.Add(new words { Word = "No Data "});
-                    NoData.Add(new words { Word = "testing"});
-                    NoData.Add(new words { Word = "hangman"});
-                    NoData.Add(new words { Word = "broken"});
-                return NoData;
-
-               }
-
-            //}
-            //catch (Exception e)
-            //{
-            //    Log.Info(tag, "ERROR Did the DB move across??:" + e.Message);
-            //    return null;
-            //}
+            List<words> NoData = new List<words>();
+            NoData.Add(new words { Word = "No Data " });
+            NoData.Add(new words { Word = "testing" });
+            NoData.Add(new words { Word = "hangman" });
+            NoData.Add(new words { Word = "broken" });
+            return NoData;
         }
+
+        //if (!File.Exists(databasePath))
+        //{
+        //List<words> NoData = new List<words>();
+
+        //NoData.Add(new words { Word = "No Data" });
+        //return NoData;
+
+        //}
+
+        //try
+        //{
+        //var query = db.Query<words>("SELECT * FROM words");
+
+        //if (query.Count > 0)
+        //{
+        //    //List<words> YesData = new List<words>();
+        //    //return YesData;
+
+        //    return db.Query<words>("SELECT * FROM words");
+        //}
+        //else
+        //{
+
+
+        //}
+
+        //}
+        //catch (Exception e)
+        //{
+        //    Log.Info(tag, "ERROR Did the DB move across??:" + e.Message);
+        //    return null;
+        //}
 
         //public IEnumerable<words> ViewAll()
         //{

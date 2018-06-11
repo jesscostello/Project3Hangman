@@ -117,21 +117,14 @@ namespace Project3Hangman
         public void DoThis()
         {
             Database mydb = new Database();
-            //myList = new List<words>();
             myList = mydb.ViewAll();
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    //myList.Add(words.Tables[0].Rows[i]["Word"].ToString());
-            //}
-
             lv1.Adapter = new DataAdapter(this, myList);
 
             if (myList.Count() > 0)
             {
-                var WordItem = myList[0];
-                
-                string theword = WordItem.ToString();
+                words WordItem = myList[1];
+
+                string theword = WordItem.Word;
 
                 Toast.MakeText(this, theword, ToastLength.Long).Show();
             }
@@ -144,10 +137,6 @@ namespace Project3Hangman
         private void onAnyLetterClick(object sender, EventArgs e)
         {
             string letter = (sender as Button).Text;
-
-            //Database mydb = new Database();
-
-            //string guessingWord = mydb.SelectWord();
 
             Toast.MakeText(this, letter, ToastLength.Long).Show();
 

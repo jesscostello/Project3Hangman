@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="DataAdapter.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="GameActivity.cs" />
     <Compile Include="HangmanActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
