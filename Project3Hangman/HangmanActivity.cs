@@ -18,7 +18,14 @@ namespace Project3Hangman
     public class HangmanActivity : Activity
     {
         public string theWordToGuess { get; set; }
-        //public ImageView HangmanImage { get; set; }
+        //public char[] theWordArray { get; set; }
+        public char[] theWordToGuessArray { get; set; }
+        public int numberOfLetters { get; set; }
+        public char[] guessingWordArray { get; set; }
+        //public char[] theLettersOfWord { get; set; }
+        public int theCurrentLevel { get; set; } = 1;
+        public ImageView HangmanImage { get; set; }
+        //public char underscore { get; set; } = "A";
 
         #region instantiate buttons
         Button btnA;
@@ -117,6 +124,7 @@ namespace Project3Hangman
             #endregion
 
             lettersOfWord = FindViewById<TextView>(Resource.Id.textView1);
+            HangmanImage = FindViewById<ImageView>(Resource.Id.imgHangman);
             lettersOfWord.Text = "";
             //lv1 = FindViewById<ListView>(Resource.Id.listView1);
             GetAllWordsFromTheDatabase();
@@ -162,24 +170,126 @@ namespace Project3Hangman
 
         private void LoadTheWord()
         {
-            char[] WordArray = new char[theWordToGuess.Length];
-            WordArray = theWordToGuess.ToCharArray();
-            for (int i = 0; i < WordArray.Length; i++)
+            //char[] WordArray = new char[theWordToGuess.Length];
+            //WordArray = theWordToGuess.ToCharArray();
+            //theWordArray = WordArray;
+            //for (int i = 0; i < theWordArray.Length; i++)
+            //{
+            //    //theLettersOfWord[i] = "a".ToCharArray()[0];
+            //    //theWordArray[i] = "_".ToCharArray()[0];
+            //}
+
+            numberOfLetters = theWordToGuess.Length;
+            //theWordToGuessArray[] = theWordToGuess.ToCharArray()[0];
+            //char[] array = new char[numberOfLetters];
+            //array = theWordToGuess.ToCharArray();
+            //theWordToGuessArray[numberOfLetters] = array[numberOfLetters];
+            //theWordToGuessArray[numberOfLetters] = array.CopyTo();
+            //array.CopyTo(theWordToGuessArray, numberOfLetters);
+            theWordToGuessArray = theWordToGuess.ToCharArray();
+            char[] guessingArray = new char[numberOfLetters];
+            
+            for (int i = 0; i < numberOfLetters; i++)
             {
-                //int letternumber = i + 1;
-                //Toast.MakeText(this, "Letter number " + letternumber + " is: " + WordArray[i], ToastLength.Short).Show();
-                lettersOfWord.Text += " _ ";
+                //lettersOfWord.Text += " _ ";
+                //guessingArray[i] = underscore.ToCharArray()[0];
+                char underscore = new char();
+                underscore = '_';
+                //guessingWordArray[i] = underscore;
+                guessingArray[i] = underscore;
             }
+            //guessingWordArray[numberOfLetters] = guessingArray[numberOfLetters - 1];
+            //guessingArray.CopyTo(guessingWordArray, 0);
+            string s = new string(guessingArray);
+            guessingWordArray = s.ToCharArray();
+            DisplayWord();
+        }
+
+        private void DisplayWord()
+        {
+            string result = new string(guessingWordArray);
+            lettersOfWord.Text = result;
         }
 
         private void onAnyLetterClick(object sender, EventArgs e)
         {
             string letter = (sender as Button).Text;
 
-            Toast.MakeText(this, letter, ToastLength.Long).Show();
-
             // disable button so it can't be clicked again
             (sender as Button).Enabled = false;
+
+            CheckForLetter(letter);
+        }
+
+        private void CheckForLetter(string letter)
+        {
+            char[] Letter = letter.ToCharArray();
+            //char[] letters = theWordToGuess.ToCharArray();
+            
+            // if the letter is in the word
+            if (theWordToGuess.Contains(letter))
+            {
+                for (int i = 0; i < theWordToGuessArray.Length; i++)
+                {
+                    if (theWordToGuessArray[i] == Letter[0])
+                    {
+                        //theLettersOfWord[i] = Letter[0];
+                        //theWordToGuessArray[i] = Letter[0];
+                        //string word = new string(theWordToGuessArray);
+                        guessingWordArray[i] = Letter[0];
+                        //Toast.MakeText(this, word, ToastLength.Long).Show();
+                    }
+                }
+                DisplayWord();
+            }
+            else
+            {
+                WrongLetter();
+            }
+        }
+
+        private void WrongLetter()
+        {
+            theCurrentLevel++;
+            HangmanLevels();
+        }
+
+        private void HangmanLevels()
+        {
+            switch (theCurrentLevel)
+            {
+                case 1:
+                    HangmanImage.SetBackgroundResource(Resource.Drawable.hangman1);
+                    break;
+                case 2:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman2);
+                    break;
+                case 3:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman3);
+                    break;
+                case 4:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman4);
+                    break;
+                case 5:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman5);
+                    break;
+                case 6:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman6);
+                    break;
+                case 7:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman7);
+                    break;
+                case 8:
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman8);
+                    EndGame();
+                    break;
+
+            }
+        }
+        
+        private void EndGame()
+        {
+            throw new NotImplementedException();
         }
 
         //private void gettheword()
