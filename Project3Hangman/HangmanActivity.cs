@@ -26,6 +26,8 @@ namespace Project3Hangman
         public int theCurrentLevel { get; set; } = 1;
         public ImageView HangmanImage { get; set; }
         //public char underscore { get; set; } = "A";
+        public int score { get; set; } = 0;
+        public string outcome { get; set; }
 
         #region instantiate buttons
         Button btnA;
@@ -161,7 +163,7 @@ namespace Project3Hangman
             words WordItem = myList[WordId];
             theWordToGuess = WordItem.Word.ToUpper();
 
-            Toast.MakeText(this, WordId.ToString() + theWordToGuess, ToastLength.Long).Show();
+            //Toast.MakeText(this, WordId.ToString() + theWordToGuess, ToastLength.Long).Show();
 
             LoadTheWord();
         }
@@ -197,6 +199,18 @@ namespace Project3Hangman
             (sender as Button).Enabled = false;
 
             CheckForLetter(letter);
+
+            CheckToSeeIfWordIsCompleted();
+        }
+
+        private void CheckToSeeIfWordIsCompleted()
+        {
+            // if array contains _ do nothing. if not end game
+            if (!guessingWordArray.Contains('_'))
+            {
+                outcome = "Win";
+                EndGame(outcome);
+            }
         }
 
         private void CheckForLetter(string letter)
@@ -232,7 +246,7 @@ namespace Project3Hangman
             switch (theCurrentLevel)
             {
                 case 1:
-                    HangmanImage.SetBackgroundResource(Resource.Drawable.hangman1);
+                    HangmanImage.SetImageResource(Resource.Drawable.hangman1);
                     break;
                 case 2:
                     HangmanImage.SetImageResource(Resource.Drawable.hangman2);
@@ -254,15 +268,24 @@ namespace Project3Hangman
                     break;
                 case 8:
                     HangmanImage.SetImageResource(Resource.Drawable.hangman8);
-                    EndGame();
+                    outcome = "Loss";
+                    EndGame(outcome);
                     break;
 
             }
         }
         
-        private void EndGame()
+        private void EndGame(string outcome)
         {
-            throw new NotImplementedException();
+            // if game is won or lost
+            UpdateScore(outcome);
+            Toast.MakeText(this, "Game Over " + outcome + " Score: " + score, ToastLength.Long).Show();
+        }
+
+        private void UpdateScore(string outcome)
+        {
+            int gameScore = numberOfLetters * 5;
+            score = score + gameScore;
         }
 
         //private void gettheword()

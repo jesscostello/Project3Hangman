@@ -30,8 +30,11 @@ namespace Project3Hangman
         public List<words> ViewAll()
         {
             List<words> NoData = new List<words>();
-            NoData.Add(new words { Word = "NoData" });
-            NoData.Add(new words { Word = "testing" });
+            NoData.Add(new words { Word = "jamie" });
+            NoData.Add(new words { Word = "natalie" });
+            NoData.Add(new words { Word = "jack" });
+            NoData.Add(new words { Word = "shane" });
+            NoData.Add(new words { Word = "hillary" });
             NoData.Add(new words { Word = "hangman" });
             NoData.Add(new words { Word = "broken" });
             return NoData;
