@@ -161,8 +161,6 @@ namespace Project3Hangman
             words WordItem = myList[WordId];
             theWordToGuess = WordItem.Word.ToUpper();
 
-            // test to make sure we are getting a random id and the matching word
-            // todo delete
             Toast.MakeText(this, WordId.ToString() + theWordToGuess, ToastLength.Long).Show();
 
             LoadTheWord();
@@ -170,36 +168,16 @@ namespace Project3Hangman
 
         private void LoadTheWord()
         {
-            //char[] WordArray = new char[theWordToGuess.Length];
-            //WordArray = theWordToGuess.ToCharArray();
-            //theWordArray = WordArray;
-            //for (int i = 0; i < theWordArray.Length; i++)
-            //{
-            //    //theLettersOfWord[i] = "a".ToCharArray()[0];
-            //    //theWordArray[i] = "_".ToCharArray()[0];
-            //}
-
             numberOfLetters = theWordToGuess.Length;
-            //theWordToGuessArray[] = theWordToGuess.ToCharArray()[0];
-            //char[] array = new char[numberOfLetters];
-            //array = theWordToGuess.ToCharArray();
-            //theWordToGuessArray[numberOfLetters] = array[numberOfLetters];
-            //theWordToGuessArray[numberOfLetters] = array.CopyTo();
-            //array.CopyTo(theWordToGuessArray, numberOfLetters);
             theWordToGuessArray = theWordToGuess.ToCharArray();
             char[] guessingArray = new char[numberOfLetters];
             
             for (int i = 0; i < numberOfLetters; i++)
             {
-                //lettersOfWord.Text += " _ ";
-                //guessingArray[i] = underscore.ToCharArray()[0];
                 char underscore = new char();
                 underscore = '_';
-                //guessingWordArray[i] = underscore;
                 guessingArray[i] = underscore;
             }
-            //guessingWordArray[numberOfLetters] = guessingArray[numberOfLetters - 1];
-            //guessingArray.CopyTo(guessingWordArray, 0);
             string s = new string(guessingArray);
             guessingWordArray = s.ToCharArray();
             DisplayWord();
@@ -224,7 +202,6 @@ namespace Project3Hangman
         private void CheckForLetter(string letter)
         {
             char[] Letter = letter.ToCharArray();
-            //char[] letters = theWordToGuess.ToCharArray();
             
             // if the letter is in the word
             if (theWordToGuess.Contains(letter))
@@ -233,11 +210,7 @@ namespace Project3Hangman
                 {
                     if (theWordToGuessArray[i] == Letter[0])
                     {
-                        //theLettersOfWord[i] = Letter[0];
-                        //theWordToGuessArray[i] = Letter[0];
-                        //string word = new string(theWordToGuessArray);
                         guessingWordArray[i] = Letter[0];
-                        //Toast.MakeText(this, word, ToastLength.Long).Show();
                     }
                 }
                 DisplayWord();
