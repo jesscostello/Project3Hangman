@@ -13,7 +13,7 @@ using Android.Widget;
 namespace Project3Hangman
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
-    public class RoundEndActivity : Activity, IPlayer
+    public class RoundEndActivity : Activity
     {
         //Player myPlayer = new Player();
 
@@ -22,9 +22,9 @@ namespace Project3Hangman
         ImageView image;
         TextView txtview;
 
-        public string name { get; set; }
-        public int score { get; set; }
-        public string outcome { get; set; }
+        //public string name { get; set; }
+        //public int score { get; set; }
+        //public string outcome { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,14 +46,14 @@ namespace Project3Hangman
 
         private void DisplayResultPicture()
         {
-            if (outcome == "Win")
+            if (Player.outcome == "Win")
             {
-                Toast.MakeText(this, "testing" + score, ToastLength.Long).Show();
+                Toast.MakeText(this, "testing" + Player.score, ToastLength.Long).Show();
                 image.SetImageResource(Resource.Drawable.hangman3);
             }
             else
             {
-                Toast.MakeText(this, "Game Over " + outcome + " Score: " + score, ToastLength.Long).Show();
+                Toast.MakeText(this, "Game Over " + Player.outcome + " Score: " + Player.score, ToastLength.Long).Show();
                 image.SetImageResource(Resource.Drawable.hangman8);
             }
             
@@ -61,13 +61,13 @@ namespace Project3Hangman
 
         private void UpdateResult()
         {
-            if (outcome == "Win")
+            if (Player.outcome == "Win")
             {
-                txtview.Text = "Congrats " + name + "! Move onto the next word or save your current score to the leaderboard and end the game now. \n Your score is: " + score;
+                txtview.Text = "Congrats " + Player.name + "! Move onto the next word or save your current score to the leaderboard and end the game now. \n Your score is: " + Player.score;
             }
             else
             {
-                txtview.Text = "Bad luck! Your score is: " + score;
+                txtview.Text = "Bad luck! Your score is: " + Player.score;
             }
             
         }

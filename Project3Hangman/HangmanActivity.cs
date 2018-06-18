@@ -15,7 +15,7 @@ using Environment = Android.OS.Environment;
 namespace Project3Hangman
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class HangmanActivity : Activity, IPlayer
+    public class HangmanActivity : Activity
     {
         //Player myPlayer = new Player();
 
@@ -28,9 +28,9 @@ namespace Project3Hangman
         public int theCurrentLevel { get; set; } = 1;
         public ImageView HangmanImage { get; set; }
 
-        public string name { get; set; }
-        public int score { get; set; }
-        public string outcome { get; set; }
+        //public string name { get; set; }
+        //public int score { get; set; }
+        //public string outcome { get; set; }
 
         //public char underscore { get; set; } = "A";
         //public int score { get; set; } = 0;
@@ -215,7 +215,7 @@ namespace Project3Hangman
             // if array contains _ do nothing. if not end game
             if (!guessingWordArray.Contains('_'))
             {
-                outcome = "Win";
+                Player.outcome = "Win";
                 EndGame();
             }
         }
@@ -275,7 +275,7 @@ namespace Project3Hangman
                     break;
                 case 8:
                     HangmanImage.SetImageResource(Resource.Drawable.hangman8);
-                    outcome = "Loss";
+                    Player.outcome = "Loss";
                     EndGame();
                     break;
 
@@ -301,7 +301,7 @@ namespace Project3Hangman
         {
             int gameScore;
 
-            if (outcome == "Win")
+            if (Player.outcome == "Win")
             {
                 gameScore = numberOfLetters * 5;
             }
@@ -310,7 +310,7 @@ namespace Project3Hangman
                 gameScore = 0;
             }
             
-            score = score + gameScore;
+            Player.score = Player.score + gameScore;
         }
 
         //private void gettheword()

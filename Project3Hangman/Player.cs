@@ -12,13 +12,13 @@ using Android.Widget;
 
 namespace Project3Hangman
 {
-    public class Player
+    public static class Player
     {
-        public string playerName { get; set; }
-        public int score { get; set; } = 0;
-        public string outcome { get; set; }
+        public static string name { get; set; }
+        public static int score { get; set; } = 0;
+        public static string outcome { get; set; }
 
-        public Player()
+        static Player()
         {
 
         }

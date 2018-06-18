@@ -56,7 +56,6 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="RoundEndActivity.cs" />
     <Compile Include="DataAdapter.cs" />
