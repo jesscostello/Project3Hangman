@@ -2227,26 +2227,26 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f020073
+			public const int avd_hide_password_1 = 2130837619;
+			
 			// aapt resource value: 0x7f020074
-			public const int avd_hide_password_1 = 2130837620;
+			public const int avd_hide_password_2 = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int avd_hide_password_2 = 2130837621;
-			
-			// aapt resource value: 0x7f020076
-			public const int avd_hide_password_3 = 2130837622;
+			public const int avd_hide_password_3 = 2130837621;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
+			// aapt resource value: 0x7f020076
+			public const int avd_show_password_1 = 2130837622;
+			
 			// aapt resource value: 0x7f020077
-			public const int avd_show_password_1 = 2130837623;
+			public const int avd_show_password_2 = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int avd_show_password_2 = 2130837624;
-			
-			// aapt resource value: 0x7f020079
-			public const int avd_show_password_3 = 2130837625;
+			public const int avd_show_password_3 = 2130837624;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2320,11 +2320,11 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f02006c
 			public const int notification_icon_background = 2130837612;
 			
-			// aapt resource value: 0x7f020072
-			public const int notification_template_icon_bg = 2130837618;
+			// aapt resource value: 0x7f020071
+			public const int notification_template_icon_bg = 2130837617;
 			
-			// aapt resource value: 0x7f020073
-			public const int notification_template_icon_low_bg = 2130837619;
+			// aapt resource value: 0x7f020072
+			public const int notification_template_icon_low_bg = 2130837618;
 			
 			// aapt resource value: 0x7f02006d
 			public const int notification_tile_bg = 2130837613;
@@ -2333,13 +2333,10 @@ namespace Project3Hangman
 			public const int notify_panel_notification_icon_bg = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int Resource1 = 2130837615;
+			public const int tooltip_frame_dark = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int tooltip_frame_dark = 2130837616;
-			
-			// aapt resource value: 0x7f020071
-			public const int tooltip_frame_light = 2130837617;
+			public const int tooltip_frame_light = 2130837616;
 			
 			static Drawable()
 			{
@@ -2474,6 +2471,9 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800a2
 			public const int btnE = 2131230882;
 			
+			// aapt resource value: 0x7f0800d1
+			public const int btnEndGame = 2131230929;
+			
 			// aapt resource value: 0x7f0800a3
 			public const int btnF = 2131230883;
 			
@@ -2500,6 +2500,9 @@ namespace Project3Hangman
 			
 			// aapt resource value: 0x7f0800ad
 			public const int btnN = 2131230893;
+			
+			// aapt resource value: 0x7f0800d0
+			public const int btnNextWord = 2131230928;
 			
 			// aapt resource value: 0x7f0800ae
 			public const int btnO = 2131230894;
@@ -2669,6 +2672,9 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f08009b
 			public const int imgHangman = 2131230875;
 			
+			// aapt resource value: 0x7f0800ce
+			public const int imgResult = 2131230926;
+			
 			// aapt resource value: 0x7f0800c8
 			public const int info = 2131230920;
 			
@@ -2711,14 +2717,14 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800d0
-			public const int masked = 2131230928;
+			// aapt resource value: 0x7f0800d4
+			public const int masked = 2131230932;
 			
 			// aapt resource value: 0x7f0800c1
 			public const int media_actions = 2131230913;
 			
-			// aapt resource value: 0x7f0800ce
-			public const int message = 2131230926;
+			// aapt resource value: 0x7f0800d2
+			public const int message = 2131230930;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2960,6 +2966,9 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
+			// aapt resource value: 0x7f0800cf
+			public const int txtResult = 2131230927;
+			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;
 			
@@ -2972,8 +2981,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800cf
-			public const int visible = 2131230927;
+			// aapt resource value: 0x7f0800d3
+			public const int visible = 2131230931;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

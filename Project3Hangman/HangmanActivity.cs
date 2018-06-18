@@ -15,8 +15,10 @@ using Environment = Android.OS.Environment;
 namespace Project3Hangman
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class HangmanActivity : Activity
+    public class HangmanActivity : Activity, IPlayer
     {
+        //Player myPlayer = new Player();
+
         public string theWordToGuess { get; set; }
         //public char[] theWordArray { get; set; }
         public char[] theWordToGuessArray { get; set; }
@@ -25,9 +27,14 @@ namespace Project3Hangman
         //public char[] theLettersOfWord { get; set; }
         public int theCurrentLevel { get; set; } = 1;
         public ImageView HangmanImage { get; set; }
-        //public char underscore { get; set; } = "A";
-        public int score { get; set; } = 0;
+
+        public string name { get; set; }
+        public int score { get; set; }
         public string outcome { get; set; }
+
+        //public char underscore { get; set; } = "A";
+        //public int score { get; set; } = 0;
+        //public string outcome { get; set; }
 
         #region instantiate buttons
         Button btnA;
@@ -209,7 +216,7 @@ namespace Project3Hangman
             if (!guessingWordArray.Contains('_'))
             {
                 outcome = "Win";
-                EndGame(outcome);
+                EndGame();
             }
         }
 
@@ -269,22 +276,40 @@ namespace Project3Hangman
                 case 8:
                     HangmanImage.SetImageResource(Resource.Drawable.hangman8);
                     outcome = "Loss";
-                    EndGame(outcome);
+                    EndGame();
                     break;
 
             }
         }
         
-        private void EndGame(string outcome)
+        private void EndGame()
         {
             // if game is won or lost
-            UpdateScore(outcome);
-            Toast.MakeText(this, "Game Over " + outcome + " Score: " + score, ToastLength.Long).Show();
+            UpdateScore();
+            //Toast.MakeText(this, "Game Over " + myPlayer.outcome + " Score: " + myPlayer.score, ToastLength.Long).Show();
+            ShowWordResults();
         }
 
-        private void UpdateScore(string outcome)
+        private void ShowWordResults()
         {
-            int gameScore = numberOfLetters * 5;
+            //SetContentView(Resource.Layout.RoundEnd);
+            //Intent nextActivity = new Intent(this, RoundEndActivity); 
+            StartActivity(typeof(RoundEndActivity));
+        }
+
+        private void UpdateScore()
+        {
+            int gameScore;
+
+            if (outcome == "Win")
+            {
+                gameScore = numberOfLetters * 5;
+            }
+            else
+            {
+                gameScore = 0;
+            }
+            
             score = score + gameScore;
         }
 

@@ -56,14 +56,12 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="RoundEndActivity.cs" />
     <Compile Include="DataAdapter.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="HangmanActivity.cs" />
-    <Compile Include="Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="words.cs" />
@@ -154,12 +152,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\RoundEnd.axml">
       <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resource1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

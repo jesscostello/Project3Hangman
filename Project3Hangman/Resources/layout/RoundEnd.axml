@@ -7,13 +7,13 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
-        android:src="@loser"
+        android:src="@drawable/hangman1"
         android:layout_width="312.5dp"
         android:layout_height="160.0dp"
         android:id="@+id/imgResult"
         android:layout_centerHorizontal="true" />
     <TextView
-        android:text="Here is where the text will go."
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgResult"
@@ -21,5 +21,20 @@
         android:textColor="@color/abc_input_method_navigation_guard"
         android:textSize="50px"
         android:id="@+id/txtResult"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:text="Next Word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNextWord"
+        android:layout_below="@id/txtResult"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:text="End Game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEndGame"
+        android:layout_marginTop="20px"
+        android:layout_below="@id/btnNextWord"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
