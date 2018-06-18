@@ -63,7 +63,7 @@ namespace Project3Hangman
         {
             if (Player.outcome == "Win")
             {
-                txtview.Text = "Congrats " + Player.name + "! Move onto the next word or save your current score to the leaderboard and end the game now. \n Your score is: " + Player.score;
+                txtview.Text = "Congrats " + Player.name + "! \nYour score is: " + Player.score + "\n\nMove onto the next word or save your current score to the leaderboard and end the game now.";
             }
             else
             {
