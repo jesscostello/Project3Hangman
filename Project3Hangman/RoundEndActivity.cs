@@ -54,6 +54,7 @@ namespace Project3Hangman
             else
             {
                 image.SetImageResource(Resource.Drawable.loser);
+                btnNextWord.Visibility = ViewStates.Invisible;
             }
             
         }
@@ -74,14 +75,19 @@ namespace Project3Hangman
         private void nextWordClick(object sender, EventArgs e)
         {
             // change back to game view
-            // reset values
-            Toast.MakeText(this, "next word button clicked", ToastLength.Long).Show();
+            StartActivity(typeof (HangmanActivity));
         }
 
         private void endGameClick(object sender, EventArgs e)
         {
             // save score and name to database
-            Toast.MakeText(this, "end game button clicked", ToastLength.Long).Show();
+
+            // reset property variables
+            Player.outcome = null;
+            Player.score = 0;
+            Player.name = null;
+
+            // go to scoreboard screen
         }
     }
 }

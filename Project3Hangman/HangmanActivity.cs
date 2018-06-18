@@ -143,8 +143,17 @@ namespace Project3Hangman
 
         public void GetAllWordsFromTheDatabase()
         {
-            Database mydb = new Database();
-            myList = mydb.ViewAll();
+            List<words> NoData = new List<words>();
+            NoData.Add(new words { Word = "jamie" });
+            NoData.Add(new words { Word = "natalie" });
+            NoData.Add(new words { Word = "jack" });
+            NoData.Add(new words { Word = "shane" });
+            NoData.Add(new words { Word = "hillary" });
+            NoData.Add(new words { Word = "hangman" });
+            NoData.Add(new words { Word = "broken" });
+            myList = NoData;
+            //Database mydb = new Database();
+            //myList = mydb.ViewAll();
             //lv1.Adapter = new DataAdapter(this, myList);
             
             //if (myList.Count() > 0)

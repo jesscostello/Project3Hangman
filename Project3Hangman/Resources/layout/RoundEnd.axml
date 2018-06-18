@@ -24,14 +24,14 @@
             android:text="Next Word"
             android:id="@+id/btnNextWord"
             android:layout_weight="1"
-            android:padding="35px"
+            android:padding="35dip"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <Button
             android:text="End Game"
             android:id="@+id/btnEndGame"
             android:layout_weight="1"
-            android:padding="35px"
+            android:padding="35dip"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayout1"
         android:layout_marginTop="20px"
-        android:paddingLeft="25px"
+        android:paddingLeft="30dip"
         android:textColor="@color/abc_input_method_navigation_guard"
         android:textSize="25px"
         android:id="@+id/txtResult"
