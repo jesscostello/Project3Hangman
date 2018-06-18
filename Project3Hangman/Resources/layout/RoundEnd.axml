@@ -42,7 +42,6 @@
         android:layout_below="@id/linearLayout1"
         android:layout_marginTop="20px"
         android:paddingLeft="25px"
-        android:paddingRight="25"
         android:textColor="@color/abc_input_method_navigation_guard"
         android:textSize="25px"
         android:id="@+id/txtResult"

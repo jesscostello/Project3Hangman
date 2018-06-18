@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -35,7 +35,8 @@ namespace Project3Hangman
 
             image = FindViewById<ImageView>(Resource.Id.imgResult);
             txtview = FindViewById<TextView>(Resource.Id.txtResult);
-            //btnEnd = FindViewById<Button>(Resource.Id.btnEndGame);
+            btnEnd = FindViewById<Button>(Resource.Id.btnEndGame);
+            btnEnd.Click += endGameClick;
             btnNextWord = FindViewById<Button>(Resource.Id.btnNextWord);
             btnNextWord.Click += nextWordClick;
 
@@ -48,13 +49,11 @@ namespace Project3Hangman
         {
             if (Player.outcome == "Win")
             {
-                Toast.MakeText(this, "testing" + Player.score, ToastLength.Long).Show();
-                image.SetImageResource(Resource.Drawable.hangman3);
+                image.SetImageResource(Resource.Drawable.winner);
             }
             else
             {
-                Toast.MakeText(this, "Game Over " + Player.outcome + " Score: " + Player.score, ToastLength.Long).Show();
-                image.SetImageResource(Resource.Drawable.hangman8);
+                image.SetImageResource(Resource.Drawable.loser);
             }
             
         }
@@ -76,6 +75,13 @@ namespace Project3Hangman
         {
             // change back to game view
             // reset values
+            Toast.MakeText(this, "next word button clicked", ToastLength.Long).Show();
+        }
+
+        private void endGameClick(object sender, EventArgs e)
+        {
+            // save score and name to database
+            Toast.MakeText(this, "end game button clicked", ToastLength.Long).Show();
         }
     }
 }
