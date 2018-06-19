@@ -12,18 +12,18 @@ using Android.Widget;
 
 namespace Project3Hangman
 {
-    class DataAdapter : BaseAdapter<words>
+    class DataAdapter : BaseAdapter<scores>
     {
         private readonly Activity context;
-        private readonly List<words> items;
+        private readonly List<scores> items;
 
-        public DataAdapter(Activity context, List<words> items)
+        public DataAdapter(Activity context, List<scores> items)
         {
             this.context = context;
             this.items = items;
         }
 
-        public override words this[int position]
+        public override scores this[int position]
         {
             get { return items[position]; }
         }
@@ -45,14 +45,10 @@ namespace Project3Hangman
         {
             var item = items[position];
             var view = convertView;
-            //if (view == null)
-                //view = context.LayoutInflater.Inflate(Resource.Id.textView1, null);
-                //view.FindViewById<ListView>(Resource.Id.list_item) = "this is a test";
-                //view = context.LayoutInflater.Inflate(Resource.Layout.Game, null);
-                //view = context.LayoutInflater.Inflate(Resource.Layout.listView1, null);
-
-                //view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
-                //view.FindViewById<TextView>(Resource.Id.lblName).Text = item.Word;
+            if (view == null)
+                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
+                view.FindViewById<TextView>(Resource.Id.txtName).Text = item.Name;
+                view.FindViewById<TextView>(Resource.Id.txtScore).Text = item.Score.ToString();
 
             return view;
         }

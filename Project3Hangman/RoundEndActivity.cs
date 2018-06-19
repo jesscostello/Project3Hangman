@@ -82,12 +82,13 @@ namespace Project3Hangman
         {
             // save score and name to database
 
-            // reset property variables
-            Player.outcome = null;
-            Player.score = 0;
-            Player.name = null;
-
             // go to scoreboard screen
+            StartActivity(typeof(ScoreBoardActivity));
+
+            // reset property variables
+            //Player.outcome = null;
+            //Player.score = 0;
+            //Player.name = null;
         }
     }
 }

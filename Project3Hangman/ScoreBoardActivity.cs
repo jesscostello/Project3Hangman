@@ -17,8 +17,9 @@ namespace Project3Hangman
     {
         Button StartNewGame;
         ListView lvHighScores;
-        //List<scores> myList;
-        Database mydb;
+        List<scores> myList;
+        TextView txtThisScore;
+        //private readonly DataManager mydb;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,6 +31,12 @@ namespace Project3Hangman
             StartNewGame.Click += StartNewGame_Click;
 
             lvHighScores = FindViewById<ListView>(Resource.Id.lvScores);
+            myList = DataManager.ViewAll();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
+
+            txtThisScore = FindViewById<TextView>(Resource.Id.txtThisScore);
+
+            txtThisScore.Text = "Your score this time was: " + Player.score;
         }
 
         private void StartNewGame_Click(object sender, EventArgs e)

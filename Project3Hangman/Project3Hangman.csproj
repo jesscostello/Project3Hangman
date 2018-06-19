@@ -56,14 +56,15 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="RoundEndActivity.cs" />
     <Compile Include="DataAdapter.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="HangmanActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreBoardActivity.cs" />
+    <Compile Include="scores.cs" />
     <Compile Include="words.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +73,9 @@
     </AndroidAsset>
     <AndroidAsset Include="Assets\H2.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\HangmanScores.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
