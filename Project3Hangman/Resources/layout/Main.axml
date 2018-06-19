@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/notepad"
+    android:padding="5dip"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <ImageView
+        android:src="@drawable/hangman"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgTitle"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgTitle"
+        android:weightSum="5"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Name:"
+            android:textColor="@color/abc_input_method_navigation_guard"
+            android:textSize="50px"
+            android:id="@+id/textView1"
+            android:layout_weight="1"
+            android:paddingLeft="30dip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="wrap_content"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:id="@+id/etName" />
+    </LinearLayout>
 </RelativeLayout>

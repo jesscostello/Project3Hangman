@@ -24,6 +24,8 @@ namespace Project3Hangman
             databaseName = "HangmanScores.db";
             databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
             db = new SQLiteConnection(databasePath);
+
+            db.CreateTable<scores>();
         }
         public static List<scores> ViewAll()
         {
@@ -40,23 +42,24 @@ namespace Project3Hangman
                 scores item = new scores();
                 item.Id = 100;
                 item.Name = "No Name";
-                item.Score = 000;
+                item.Score = 20;
                 fakeitem.AddRange(new[] { item }); //add it to the fake item list
                 return fakeitem;
             }
         }
-        //public static void AddItem(string title, string details)
-        //{
-        //    try
-        //    {
-        //        var addThis = new scores() { Title = title, Details = details };
-        //        db.Insert(addThis);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine("Add Error:" + e.Message);
-        //    }
-        //}
+
+        public static void AddItem(string name, int score)
+        {
+            try
+            {
+                var addThis = new scores() { Name = name, Score = score };
+                db.Insert(addThis);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Add Error:" + e.Message);
+            }
+        }
 
         //public static void CopyTheDB()
         //{

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="MainActivity.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="RoundEndActivity.cs" />
@@ -168,6 +169,9 @@
     <AndroidResource Include="Resources\layout\ScoreBoard.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hangman.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,7 +14,7 @@ using Environment = Android.OS.Environment;
 
 namespace Project3Hangman
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class HangmanActivity : Activity
     {
         //Player myPlayer = new Player();

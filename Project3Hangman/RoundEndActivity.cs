@@ -81,6 +81,9 @@ namespace Project3Hangman
         private void endGameClick(object sender, EventArgs e)
         {
             // save score and name to database
+            string name = Player.name;
+            int score = Player.score;
+            DataManager.AddItem(name, score);
 
             // go to scoreboard screen
             StartActivity(typeof(ScoreBoardActivity));
