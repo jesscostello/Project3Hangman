@@ -19,7 +19,6 @@ namespace Project3Hangman
         ListView lvHighScores;
         List<scores> myList;
         TextView txtThisScore;
-        //private readonly DataManager mydb;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,7 +40,7 @@ namespace Project3Hangman
 
         private void StartNewGame_Click(object sender, EventArgs e)
         {
-            
+            StartActivity(typeof(MainActivity));
         }
     }
 }

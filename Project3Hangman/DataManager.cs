@@ -31,7 +31,7 @@ namespace Project3Hangman
         {
             try
             {
-                return db.Query<scores>("SELECT * FROM scores");
+                return db.Query<scores>("SELECT * FROM scores ORDER BY score DESC");
             }
             catch (Exception e)
             {
