@@ -16,7 +16,7 @@
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgTitle"
         android:weightSum="5"
@@ -32,9 +32,46 @@
             android:layout_height="match_parent" />
         <EditText
             android:inputType="textPersonName"
-            android:layout_width="wrap_content"
+            android:layout_width="100dip"
             android:layout_weight="4"
             android:layout_height="match_parent"
             android:id="@+id/etName" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="Play Game"
+            android:id="@+id/btnPlay"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/linearLayout3">
+        <Button
+            android:text="Scoreboard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btnScoreboard" />
+        <Button
+            android:text="How To Play"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btnRules" />
     </LinearLayout>
 </RelativeLayout>
