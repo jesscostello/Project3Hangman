@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <item android:id="@+id/action_setting1" android:title="Shar1e" showAsAction="always" />
+  <item android:id="@+id/action_settings2" android:title="Blue1tooth" showAsAction="always" />
+  <item android:id="@+id/action_settings3" android:title="Exi1t" showAsAction="always" />
+</menu>

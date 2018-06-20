@@ -6,14 +6,31 @@
     android:padding="5dip"
     android:minWidth="25px"
     android:minHeight="25px">
+    <include
+        android:id="@+id/toolbar"
+        android:layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnpopupmenu"
+            android:layout_width="50dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:text="..." />
+    </LinearLayout>
     <TextView
         android:text="High Scores"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="20px"
         android:textColor="@color/abc_input_method_navigation_guard"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btnpopupmenu"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:id="@+id/txtHighScores" />
     <ListView
         android:minWidth="25px"
@@ -30,7 +47,7 @@
         android:minHeight="25px"
         android:layout_marginTop="20px"
         android:layout_below="@id/lvScores"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linRestart">
         <Button
@@ -41,10 +58,10 @@
     </LinearLayout>
     <Button
         android:text="Reset Scores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textSize="14dp"
         android:backgroundTint="@color/abc_hint_foreground_material_light"
         android:id="@+id/btnResetScores"
-        android:layout_below="@id/linRestart" />
+        android:layout_below="@id/linRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
