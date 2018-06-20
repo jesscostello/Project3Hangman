@@ -18,7 +18,7 @@ namespace Project3Hangman
         Button StartNewGame;
         ListView lvHighScores;
         List<scores> myList;
-        TextView txtThisScore;
+        TextView txtHighScores;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,17 +28,27 @@ namespace Project3Hangman
 
             StartNewGame = FindViewById<Button>(Resource.Id.btnPlayGame);
             StartNewGame.Click += StartNewGame_Click;
-
+            txtHighScores = FindViewById<TextView>(Resource.Id.txtHighScores);
             lvHighScores = FindViewById<ListView>(Resource.Id.lvScores);
             myList = DataManager.ViewAll();
             lvHighScores.Adapter = new DataAdapter(this, myList);
+        }
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetActionBar(toolbar);
-            ActionBar.Title = "My Toolbar";
-
-            //txtThisScore = FindViewById<TextView>(Resource.Id.txtThisScore);
-            //txtThisScore.Text = "Your score this time was: " + Player.score;
+        public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.Menu)
+            {
+                PopupMenu menu = new PopupMenu(this, StartNewGame);
+                menu.Inflate(Resource.Menu.menu);
+                menu.MenuItemClick += (s1, arg1) =>
+                {
+                    Toast.MakeText(this, "Action selected: Reset scores", ToastLength.Short).Show();
+                    // this is where I will reset the scores
+                };
+                menu.Show();
+                return true;
+            }
+            return base.OnKeyUp(keyCode, e);
         }
 
         private void StartNewGame_Click(object sender, EventArgs e)
@@ -46,18 +56,18 @@ namespace Project3Hangman
             StartActivity(typeof(MainActivity));
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.menu.top_menus, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(Resource.menu.top_menus, menu);
+        //    return base.OnCreateOptionsMenu(menu);
+        //}
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-                ToastLength.Short).Show();
-            return base.OnOptionsItemSelected(item);
-        }
+        //public override bool OnOptionsItemSelected(IMenuItem item)
+        //{
+        //    Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
+        //        ToastLength.Short).Show();
+        //    return base.OnOptionsItemSelected(item);
+        //}
 
 
         ////When you choose Add from the Menu run the Add Activity. Good to know to add more options

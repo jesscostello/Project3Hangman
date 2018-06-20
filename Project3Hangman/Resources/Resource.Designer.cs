@@ -2227,26 +2227,26 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020076
-			public const int avd_hide_password_1 = 2130837622;
+			// aapt resource value: 0x7f020079
+			public const int avd_hide_password_1 = 2130837625;
 			
-			// aapt resource value: 0x7f020077
-			public const int avd_hide_password_2 = 2130837623;
+			// aapt resource value: 0x7f02007a
+			public const int avd_hide_password_2 = 2130837626;
 			
-			// aapt resource value: 0x7f020078
-			public const int avd_hide_password_3 = 2130837624;
+			// aapt resource value: 0x7f02007b
+			public const int avd_hide_password_3 = 2130837627;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020079
-			public const int avd_show_password_1 = 2130837625;
+			// aapt resource value: 0x7f02007c
+			public const int avd_show_password_1 = 2130837628;
 			
-			// aapt resource value: 0x7f02007a
-			public const int avd_show_password_2 = 2130837626;
+			// aapt resource value: 0x7f02007d
+			public const int avd_show_password_2 = 2130837629;
 			
-			// aapt resource value: 0x7f02007b
-			public const int avd_show_password_3 = 2130837627;
+			// aapt resource value: 0x7f02007e
+			public const int avd_show_password_3 = 2130837630;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2267,85 +2267,94 @@ namespace Project3Hangman
 			public const int design_snackbar_background = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int hangman = 2130837595;
+			public const int gradient_bg = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int hangman1 = 2130837596;
+			public const int gradient_bg_hover = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int hangman2 = 2130837597;
+			public const int hangman = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int hangman3 = 2130837598;
+			public const int hangman1 = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int hangman4 = 2130837599;
+			public const int hangman2 = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int hangman5 = 2130837600;
+			public const int hangman3 = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int hangman6 = 2130837601;
+			public const int hangman4 = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int hangman7 = 2130837602;
+			public const int hangman5 = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int hangman8 = 2130837603;
+			public const int hangman6 = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int loser = 2130837604;
+			public const int hangman7 = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int navigation_empty_icon = 2130837605;
+			public const int hangman8 = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notepad = 2130837606;
+			public const int list_selector = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_action_background = 2130837607;
+			public const int loser = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg = 2130837608;
+			public const int navigation_empty_icon = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_low = 2130837609;
+			public const int notepad = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_bg_low_normal = 2130837610;
+			public const int notification_action_background = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_bg_low_pressed = 2130837611;
+			public const int notification_bg = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_bg_normal = 2130837612;
+			public const int notification_bg_low = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notification_bg_normal_pressed = 2130837613;
+			public const int notification_bg_low_normal = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int notification_icon_background = 2130837614;
-			
-			// aapt resource value: 0x7f020074
-			public const int notification_template_icon_bg = 2130837620;
-			
-			// aapt resource value: 0x7f020075
-			public const int notification_template_icon_low_bg = 2130837621;
+			public const int notification_bg_low_pressed = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notification_tile_bg = 2130837615;
+			public const int notification_bg_normal = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int notify_panel_notification_icon_bg = 2130837616;
+			public const int notification_bg_normal_pressed = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int tooltip_frame_dark = 2130837617;
+			public const int notification_icon_background = 2130837617;
+			
+			// aapt resource value: 0x7f020077
+			public const int notification_template_icon_bg = 2130837623;
+			
+			// aapt resource value: 0x7f020078
+			public const int notification_template_icon_low_bg = 2130837624;
 			
 			// aapt resource value: 0x7f020072
-			public const int tooltip_frame_light = 2130837618;
+			public const int notification_tile_bg = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int winner = 2130837619;
+			public const int notify_panel_notification_icon_bg = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int tooltip_frame_dark = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int tooltip_frame_light = 2130837621;
+			
+			// aapt resource value: 0x7f020076
+			public const int winner = 2130837622;
 			
 			static Drawable()
 			{
@@ -2377,6 +2386,9 @@ namespace Project3Hangman
 			
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
+			
+			// aapt resource value: 0x7f0800e7
+			public const int actResetScores = 2131230951;
 			
 			// aapt resource value: 0x7f0800cc
 			public const int action0 = 2131230924;
@@ -2522,17 +2534,14 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800c5
 			public const int btnPlay = 2131230917;
 			
-			// aapt resource value: 0x7f0800e5
-			public const int btnPlayGame = 2131230949;
+			// aapt resource value: 0x7f0800e3
+			public const int btnPlayGame = 2131230947;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int btnQ = 2131230902;
 			
 			// aapt resource value: 0x7f0800b7
 			public const int btnR = 2131230903;
-			
-			// aapt resource value: 0x7f0800e6
-			public const int btnResetScores = 2131230950;
 			
 			// aapt resource value: 0x7f0800c8
 			public const int btnRules = 2131230920;
@@ -2563,9 +2572,6 @@ namespace Project3Hangman
 			
 			// aapt resource value: 0x7f0800c0
 			public const int btnZ = 2131230912;
-			
-			// aapt resource value: 0x7f0800e1
-			public const int btnpopupmenu = 2131230945;
 			
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
@@ -2732,8 +2738,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f08009e
 			public const int linPlayerScore = 2131230878;
 			
-			// aapt resource value: 0x7f0800e4
-			public const int linRestart = 2131230948;
+			// aapt resource value: 0x7f0800e2
+			public const int linRestart = 2131230946;
 			
 			// aapt resource value: 0x7f0800aa
 			public const int linSecondRow = 2131230890;
@@ -2765,17 +2771,17 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800e3
-			public const int lvScores = 2131230947;
+			// aapt resource value: 0x7f0800e1
+			public const int lvScores = 2131230945;
 			
-			// aapt resource value: 0x7f0800e9
-			public const int masked = 2131230953;
+			// aapt resource value: 0x7f0800e6
+			public const int masked = 2131230950;
 			
 			// aapt resource value: 0x7f0800cf
 			public const int media_actions = 2131230927;
 			
-			// aapt resource value: 0x7f0800e7
-			public const int message = 2131230951;
+			// aapt resource value: 0x7f0800e4
+			public const int message = 2131230948;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2993,9 +2999,6 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f08006f
 			public const int title_template = 2131230831;
 			
-			// aapt resource value: 0x7f0800e0
-			public const int toolbar = 2131230944;
-			
 			// aapt resource value: 0x7f08003e
 			public const int top = 2131230782;
 			
@@ -3020,8 +3023,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
-			// aapt resource value: 0x7f0800e2
-			public const int txtHighScores = 2131230946;
+			// aapt resource value: 0x7f0800e0
+			public const int txtHighScores = 2131230944;
 			
 			// aapt resource value: 0x7f08009d
 			public const int txtLetterCount = 2131230877;
@@ -3053,8 +3056,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800e8
-			public const int visible = 2131230952;
+			// aapt resource value: 0x7f0800e5
+			public const int visible = 2131230949;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3311,10 +3314,7 @@ namespace Project3Hangman
 			public const int support_simple_spinner_dropdown_item = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int toolbar = 2130968640;
-			
-			// aapt resource value: 0x7f040041
-			public const int tooltip = 2130968641;
+			public const int tooltip = 2130968640;
 			
 			static Layout()
 			{
@@ -3322,6 +3322,22 @@ namespace Project3Hangman
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0e0000
+			public const int menu = 2131623936;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}
