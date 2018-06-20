@@ -17,24 +17,13 @@ namespace Project3Hangman
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class HangmanActivity : Activity
     {
-        //Player myPlayer = new Player();
-
         public string theWordToGuess { get; set; }
-        //public char[] theWordArray { get; set; }
         public char[] theWordToGuessArray { get; set; }
         public int numberOfLetters { get; set; }
         public char[] guessingWordArray { get; set; }
-        //public char[] theLettersOfWord { get; set; }
-        public int theCurrentLevel { get; set; } = 1;
+        public int theCurrentLevel { get; set; } = 0;
+        public int currentScore { get; set; }
         public ImageView HangmanImage { get; set; }
-
-        //public string name { get; set; }
-        //public int score { get; set; }
-        //public string outcome { get; set; }
-
-        //public char underscore { get; set; } = "A";
-        //public int score { get; set; } = 0;
-        //public string outcome { get; set; }
 
         #region instantiate buttons
         Button btnA;
@@ -64,10 +53,11 @@ namespace Project3Hangman
         Button btnY;
         Button btnZ;
         #endregion
-        ListView lv1;
         List<words> myList;
         TextView lettersOfWord;
-
+        TextView txtName;
+        TextView txtScore;
+        TextView txtLetters;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -134,11 +124,13 @@ namespace Project3Hangman
 
             lettersOfWord = FindViewById<TextView>(Resource.Id.textView1);
             HangmanImage = FindViewById<ImageView>(Resource.Id.imgHangman);
+            txtLetters = FindViewById<TextView>(Resource.Id.txtLetterCount);
+            txtName = FindViewById<TextView>(Resource.Id.txtnPName);
+            txtScore = FindViewById<TextView>(Resource.Id.txtPScore);
             lettersOfWord.Text = "";
-            //lv1 = FindViewById<ListView>(Resource.Id.listView1);
             GetAllWordsFromTheDatabase();
-
             PickARandomWord();
+            SetUpPlayerDetails();
         }
 
         public void GetAllWordsFromTheDatabase()
@@ -178,12 +170,17 @@ namespace Project3Hangman
 
             words WordItem = myList[WordId];
             theWordToGuess = WordItem.Word.ToUpper();
-
-            //Toast.MakeText(this, WordId.ToString() + theWordToGuess, ToastLength.Long).Show();
+            Player.theWord = theWordToGuess;
 
             LoadTheWord();
         }
 
+        private void SetUpPlayerDetails()
+        {
+            txtLetters.Text += numberOfLetters;
+            txtName.Text += Player.name;
+            txtScore.Text += Player.score;
+        }
         private void LoadTheWord()
         {
             numberOfLetters = theWordToGuess.Length;
@@ -215,7 +212,6 @@ namespace Project3Hangman
             (sender as Button).Enabled = false;
 
             CheckForLetter(letter);
-
             CheckToSeeIfWordIsCompleted();
         }
 
@@ -241,8 +237,10 @@ namespace Project3Hangman
                     if (theWordToGuessArray[i] == Letter[0])
                     {
                         guessingWordArray[i] = Letter[0];
+                        currentScore = currentScore + 5;
                     }
                 }
+                txtScore.Text = "Score: " + currentScore;
                 DisplayWord();
             }
             else
@@ -295,64 +293,28 @@ namespace Project3Hangman
         {
             // if game is won or lost
             UpdateScore();
-            //Toast.MakeText(this, "Game Over " + myPlayer.outcome + " Score: " + myPlayer.score, ToastLength.Long).Show();
             ShowWordResults();
         }
 
         private void ShowWordResults()
         {
-            //SetContentView(Resource.Layout.RoundEnd);
-            //Intent nextActivity = new Intent(this, RoundEndActivity); 
             StartActivity(typeof(RoundEndActivity));
         }
 
         private void UpdateScore()
         {
-            int gameScore;
+            //int gameScore;
 
             if (Player.outcome == "Win")
             {
-                gameScore = numberOfLetters * 5;
+                //gameScore = numberOfLetters * 5;
             }
             else
             {
-                gameScore = 0;
+                //gameScore = 0;
             }
             
-            Player.score = Player.score + gameScore;
+            Player.score = Player.score + currentScore;
         }
-
-        //private void gettheword()
-        //{
-        //    Database mydb = new Database();
-
-        //    string guessingWord = mydb.GetWords().ToString();
-
-        //    Toast.MakeText(this, guessingWord, ToastLength.Long).Show();
-        //}
-
-        //private void CopyTheDB()
-        //{
-        //    // Check if your DB has already been extracted. If the file does not exist move it.
-        //    //WARNING!!!!!!!!!!! If your DB changes from the first time you install it, ie: you change the tables, and you get errors then comment out the if wrapper so that it is FORCED TO UPDATE. Otherwise you spend hours staring at code that should run OK but the db, that you can’t see inside of on your phone, is diffferent from the db you are coding to.
-        //    string dbName = "Hangman.db";
-        //    string dbPath = Path.Combine(System.Environment.SpecialFolder.Personal.ToString(), dbName);
-
-        //    //if (!File.Exists(dbPath))
-        //    //{
-        //        using (BinaryReader br = new BinaryReader(Assets.Open(dbName)))
-        //        {
-        //            using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
-        //            {
-        //                byte[] buffer = new byte[2048];
-        //                int len = 0;
-        //                while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
-        //                {
-        //                    bw.Write(buffer, 0, len);
-        //                }
-        //            }
-        //        }
-        //    //}
-        //}
     }
 }

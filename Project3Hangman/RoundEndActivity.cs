@@ -15,16 +15,10 @@ namespace Project3Hangman
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class RoundEndActivity : Activity
     {
-        //Player myPlayer = new Player();
-
         Button btnNextWord;
         Button btnEnd;
         ImageView image;
         TextView txtview;
-
-        //public string name { get; set; }
-        //public int score { get; set; }
-        //public string outcome { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -67,7 +61,7 @@ namespace Project3Hangman
             }
             else
             {
-                txtview.Text = "Bad luck! Your score is: " + Player.score;
+                txtview.Text = "Bad luck! Your score is: " + Player.score + "\nThe correct word was: " + Player.theWord;
             }
             
         }
