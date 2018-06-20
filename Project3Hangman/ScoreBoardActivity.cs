@@ -33,9 +33,9 @@ namespace Project3Hangman
             myList = DataManager.ViewAll();
             lvHighScores.Adapter = new DataAdapter(this, myList);
 
-            txtThisScore = FindViewById<TextView>(Resource.Id.txtThisScore);
+            //txtThisScore = FindViewById<TextView>(Resource.Id.txtThisScore);
 
-            txtThisScore.Text = "Your score this time was: " + Player.score;
+            //txtThisScore.Text = "Your score this time was: " + Player.score;
         }
 
         private void StartNewGame_Click(object sender, EventArgs e)

@@ -2522,14 +2522,17 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800c5
 			public const int btnPlay = 2131230917;
 			
-			// aapt resource value: 0x7f0800e4
-			public const int btnPlayGame = 2131230948;
+			// aapt resource value: 0x7f0800e3
+			public const int btnPlayGame = 2131230947;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int btnQ = 2131230902;
 			
 			// aapt resource value: 0x7f0800b7
 			public const int btnR = 2131230903;
+			
+			// aapt resource value: 0x7f0800e4
+			public const int btnResetScores = 2131230948;
 			
 			// aapt resource value: 0x7f0800c8
 			public const int btnRules = 2131230920;
@@ -2726,8 +2729,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f08009e
 			public const int linPlayerScore = 2131230878;
 			
-			// aapt resource value: 0x7f0800e3
-			public const int linRestart = 2131230947;
+			// aapt resource value: 0x7f0800e2
+			public const int linRestart = 2131230946;
 			
 			// aapt resource value: 0x7f0800aa
 			public const int linSecondRow = 2131230890;
@@ -2759,8 +2762,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800e2
-			public const int lvScores = 2131230946;
+			// aapt resource value: 0x7f0800e1
+			public const int lvScores = 2131230945;
 			
 			// aapt resource value: 0x7f0800e7
 			public const int masked = 2131230951;
@@ -3011,8 +3014,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
-			// aapt resource value: 0x7f0800e1
-			public const int txtHighScores = 2131230945;
+			// aapt resource value: 0x7f0800e0
+			public const int txtHighScores = 2131230944;
 			
 			// aapt resource value: 0x7f08009d
 			public const int txtLetterCount = 2131230877;
@@ -3028,9 +3031,6 @@ namespace Project3Hangman
 			
 			// aapt resource value: 0x7f08008d
 			public const int txtScore = 2131230861;
-			
-			// aapt resource value: 0x7f0800e0
-			public const int txtThisScore = 2131230944;
 			
 			// aapt resource value: 0x7f08009f
 			public const int txtnPName = 2131230879;

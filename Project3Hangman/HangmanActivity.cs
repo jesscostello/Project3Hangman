@@ -232,15 +232,21 @@ namespace Project3Hangman
             // if the letter is in the word
             if (theWordToGuess.Contains(letter))
             {
+                //int gameScore;
                 for (int i = 0; i < theWordToGuessArray.Length; i++)
                 {
                     if (theWordToGuessArray[i] == Letter[0])
                     {
                         guessingWordArray[i] = Letter[0];
-                        currentScore = currentScore + 5;
+                        //gameScore = Player.score + 5;
                     }
+                //    else
+                //    {
+                //        gameScore = Player.score + 0;
+                //    }
                 }
-                txtScore.Text = "Score: " + currentScore;
+                //Player.score = gameScore;
+                //txtScore.Text = "Score: " + Player.score;
                 DisplayWord();
             }
             else
@@ -303,18 +309,18 @@ namespace Project3Hangman
 
         private void UpdateScore()
         {
-            //int gameScore;
+            int gameScore;
 
             if (Player.outcome == "Win")
             {
-                //gameScore = numberOfLetters * 5;
+                gameScore = numberOfLetters * 5;
             }
             else
             {
-                //gameScore = 0;
+                gameScore = 0;
             }
-            
-            Player.score = Player.score + currentScore;
+            Player.score = gameScore;
+            //Player.score = Player.score + currentScore;
         }
     }
 }

@@ -7,22 +7,13 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Your score was: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:paddingLeft="30px"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:textSize="25px"
-        android:id="@+id/txtThisScore"
-        android:layout_centerHorizontal="true" />
-    <TextView
         android:text="High Scores"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="20px"
-        android:layout_below="@id/txtThisScore"
+        android:textColor="@color/abc_input_method_navigation_guard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:id="@+id/txtHighScores" />
     <ListView
         android:minWidth="25px"
@@ -30,7 +21,8 @@
         android:layout_marginTop="20px"
         android:layout_below="@id/txtHighScores"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:id="@+id/lvScores" />
     <LinearLayout
         android:orientation="horizontal"
@@ -47,4 +39,12 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+    <Button
+        android:text="Reset Scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:backgroundTint="@color/abc_hint_foreground_material_light"
+        android:id="@+id/btnResetScores"
+        android:layout_below="@id/linRestart" />
 </RelativeLayout>
