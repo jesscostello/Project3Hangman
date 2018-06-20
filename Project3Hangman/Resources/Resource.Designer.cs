@@ -2387,8 +2387,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800e7
-			public const int actResetScores = 2131230951;
+			// aapt resource value: 0x7f0800e8
+			public const int actResetScores = 2131230952;
 			
 			// aapt resource value: 0x7f0800cc
 			public const int action0 = 2131230924;
@@ -2534,14 +2534,17 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800c5
 			public const int btnPlay = 2131230917;
 			
-			// aapt resource value: 0x7f0800e3
-			public const int btnPlayGame = 2131230947;
+			// aapt resource value: 0x7f0800e4
+			public const int btnPlayGame = 2131230948;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int btnQ = 2131230902;
 			
 			// aapt resource value: 0x7f0800b7
 			public const int btnR = 2131230903;
+			
+			// aapt resource value: 0x7f0800e3
+			public const int btnReset = 2131230947;
 			
 			// aapt resource value: 0x7f0800c8
 			public const int btnRules = 2131230920;
@@ -2774,14 +2777,14 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800e1
 			public const int lvScores = 2131230945;
 			
-			// aapt resource value: 0x7f0800e6
-			public const int masked = 2131230950;
+			// aapt resource value: 0x7f0800e7
+			public const int masked = 2131230951;
 			
 			// aapt resource value: 0x7f0800cf
 			public const int media_actions = 2131230927;
 			
-			// aapt resource value: 0x7f0800e4
-			public const int message = 2131230948;
+			// aapt resource value: 0x7f0800e5
+			public const int message = 2131230949;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -3056,8 +3059,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800e5
-			public const int visible = 2131230949;
+			// aapt resource value: 0x7f0800e6
+			public const int visible = 2131230950;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

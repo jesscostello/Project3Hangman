@@ -16,6 +16,7 @@ namespace Project3Hangman
     public class ScoreBoardActivity : Activity
     {
         Button StartNewGame;
+        Button ResetScores;
         ListView lvHighScores;
         List<scores> myList;
         TextView txtHighScores;
@@ -28,28 +29,56 @@ namespace Project3Hangman
 
             StartNewGame = FindViewById<Button>(Resource.Id.btnPlayGame);
             StartNewGame.Click += StartNewGame_Click;
+            ResetScores = FindViewById<Button>(Resource.Id.btnReset);
+            ResetScores.Click += ResetScores_Click;
             txtHighScores = FindViewById<TextView>(Resource.Id.txtHighScores);
             lvHighScores = FindViewById<ListView>(Resource.Id.lvScores);
-            myList = DataManager.ViewAll();
-            lvHighScores.Adapter = new DataAdapter(this, myList);
+            DisplayScores();
         }
 
-        public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
+        public void DisplayScores()
         {
-            if (keyCode == Keycode.Menu)
+            myList = DataManager.ViewAll();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
+            if (lvHighScores.Count >= 1)
             {
-                PopupMenu menu = new PopupMenu(this, StartNewGame);
-                menu.Inflate(Resource.Menu.menu);
-                menu.MenuItemClick += (s1, arg1) =>
-                {
-                    Toast.MakeText(this, "Action selected: Reset scores", ToastLength.Short).Show();
-                    // this is where I will reset the scores
-                };
-                menu.Show();
-                return true;
+                ResetScores.Visibility = ViewStates.Visible;
             }
-            return base.OnKeyUp(keyCode, e);
+            else
+            {
+                ResetScores.Visibility = ViewStates.Gone;
+            }
         }
+
+        private void ResetScores_Click(object sender, EventArgs e)
+        {
+            //reset the scores
+            // delete everything from the scores table
+            DataManager.ResetScores();
+            // refresh
+            OnResume();
+            ResetScores.Visibility = ViewStates.Gone;
+        }
+
+        //public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
+        //{
+        //    if (keyCode == Keycode.Menu)
+        //    {
+        //        PopupMenu menu = new PopupMenu(this, StartNewGame);
+        //        menu.Inflate(Resource.Menu.menu);
+        //        menu.MenuItemClick += (s1, arg1) =>
+        //        {
+        //            // reset the scores
+        //            // delete everything from the scores table
+        //            DataManager.ResetScores();
+        //            // refresh
+        //            OnResume();
+        //        };
+        //        menu.Show();
+        //        return true;
+        //    }
+        //    return base.OnKeyUp(keyCode, e);
+        //}
 
         private void StartNewGame_Click(object sender, EventArgs e)
         {
@@ -84,12 +113,12 @@ namespace Project3Hangman
         //    }
         //    return base.OnOptionsItemSelected(item);
         //}
-        ////Basically reload stuff when the app resumes operation after being pauused
-        //protected override void OnResume()
-        //{
-        //    base.OnResume();
-        //    myList = DataManager.ViewAll();
-        //    lvHighScores.Adapter = new DataAdapter(this, myList);
-        //}
+        //Basically reload stuff when the app resumes operation after being pauused
+        protected override void OnResume()
+        {
+            base.OnResume();
+            myList = DataManager.ViewAll();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
+        }
     }
 }

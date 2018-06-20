@@ -40,9 +40,9 @@ namespace Project3Hangman
                 List<scores> fakeitem = new List<scores>();
                 //make a single item
                 scores item = new scores();
-                item.Id = 100;
-                item.Name = "No Name";
-                item.Score = 20;
+                item.Id = 1000;
+                item.Name = "No Scores Yet";
+                item.Score = 0;
                 fakeitem.AddRange(new[] { item }); //add it to the fake item list
                 return fakeitem;
             }
@@ -54,6 +54,18 @@ namespace Project3Hangman
             {
                 var addThis = new scores() { Name = name, Score = score };
                 db.Insert(addThis);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Add Error:" + e.Message);
+            }
+        }
+
+        public static void ResetScores()
+        {
+            try
+            {
+                db.Query<scores>("DELETE FROM scores");
             }
             catch (Exception e)
             {

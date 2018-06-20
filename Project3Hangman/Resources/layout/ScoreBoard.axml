@@ -38,9 +38,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/linRestart">
         <Button
+            android:text="Reset Scores"
+            android:background="@android:color/holo_red_light"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnReset" />
+        <Button
             android:text="Play Game"
             android:id="@+id/btnPlayGame"
-            android:background="@color/button_material_dark"
+            android:background="@android:color/holo_green_light"
             android:layout_width="fill_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
