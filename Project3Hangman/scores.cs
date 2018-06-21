@@ -19,6 +19,7 @@ namespace Project3Hangman
         public int Id { get; set; }
         public string Name { get; set; }
         public int Score { get; set; }
+        public string Category { get; set; }
 
         public scores()
         {

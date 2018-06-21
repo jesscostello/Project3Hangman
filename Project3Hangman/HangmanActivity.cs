@@ -53,7 +53,7 @@ namespace Project3Hangman
         Button btnY;
         Button btnZ;
         #endregion
-        List<words> myList;
+        List<words> myList = new List<words>();
         TextView lettersOfWord;
         TextView txtName;
         TextView txtScore;
@@ -127,39 +127,50 @@ namespace Project3Hangman
             txtLetters = FindViewById<TextView>(Resource.Id.txtLetterCount);
             txtName = FindViewById<TextView>(Resource.Id.txtnPName);
             txtScore = FindViewById<TextView>(Resource.Id.txtPScore);
+            
             lettersOfWord.Text = "";
-            GetAllWordsFromTheDatabase();
+            LoadWordsFromFile();
             PickARandomWord();
             SetUpPlayerDetails();
         }
 
-        public void GetAllWordsFromTheDatabase()
+        public void LoadWordsFromFile()
         {
-            List<words> NoData = new List<words>();
-            NoData.Add(new words { Word = "jamie" });
-            NoData.Add(new words { Word = "natalie" });
-            NoData.Add(new words { Word = "jack" });
-            NoData.Add(new words { Word = "shane" });
-            NoData.Add(new words { Word = "hillary" });
-            NoData.Add(new words { Word = "hangman" });
-            NoData.Add(new words { Word = "broken" });
-            myList = NoData;
-            //Database mydb = new Database();
-            //myList = mydb.ViewAll();
-            //lv1.Adapter = new DataAdapter(this, myList);
-            
-            //if (myList.Count() > 0)
-            //{
-            //    words WordItem = myList[1];
+            string cat = "";
+            if (Player.category == "ANIMALS")
+            {
+                cat = "animals";
+            }
+            else if (Player.category == "COUNTRIES")
+            {
+                cat = "countries";
+            }
+            try
+            {
+                var assets = Assets;
+                using (var sr = new StreamReader(assets.Open(cat + ".txt")))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        var text = sr.ReadLine();
+                        // only get lines with words on them, or with more than 4 letters
+                        if (text != string.Empty && text.Length > 4) 
+                        {
+                            text = text.Trim();
 
-            //    string theword = WordItem.Word;
-
-            //    Toast.MakeText(this, theword, ToastLength.Long).Show();
-            //}
-            //else
-            //{
-            //    Toast.MakeText(this, "There is nothing in the list.", ToastLength.Long).Show();
-            //}
+                            if (text.Length > 4)
+                            {
+                                myList.Add(new words { Word = text });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Toast.MakeText(this, "Database didn't load", ToastLength.Long).Show();
+                Console.WriteLine(e);
+            }
         }
 
         private void PickARandomWord()
@@ -169,7 +180,10 @@ namespace Project3Hangman
             int WordId = myrnd.Next(0, Count);
 
             words WordItem = myList[WordId];
+            string theword = WordItem.Word;
+
             theWordToGuess = WordItem.Word.ToUpper();
+
             Player.theWord = theWordToGuess;
 
             LoadTheWord();
@@ -232,21 +246,13 @@ namespace Project3Hangman
             // if the letter is in the word
             if (theWordToGuess.Contains(letter))
             {
-                //int gameScore;
                 for (int i = 0; i < theWordToGuessArray.Length; i++)
                 {
                     if (theWordToGuessArray[i] == Letter[0])
                     {
                         guessingWordArray[i] = Letter[0];
-                        //gameScore = Player.score + 5;
                     }
-                //    else
-                //    {
-                //        gameScore = Player.score + 0;
-                //    }
                 }
-                //Player.score = gameScore;
-                //txtScore.Text = "Score: " + Player.score;
                 DisplayWord();
             }
             else

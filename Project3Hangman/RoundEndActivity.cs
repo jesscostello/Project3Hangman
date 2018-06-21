@@ -77,7 +77,8 @@ namespace Project3Hangman
             // save score and name to database
             string name = Player.name;
             int score = Player.score;
-            DataManager.AddItem(name, score);
+            string category = Player.category;
+            DataManager.AddItem(name, score, category);
 
             // go to scoreboard screen
             StartActivity(typeof(ScoreBoardActivity));

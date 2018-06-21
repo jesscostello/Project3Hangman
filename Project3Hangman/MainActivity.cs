@@ -18,6 +18,9 @@ namespace Project3Hangman
         Button btnPlay;
         Button btnScores;
         EditText etName;
+        RadioButton radAnimals;
+        RadioButton radCountries;
+        RadioGroup radGroup;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,10 +32,15 @@ namespace Project3Hangman
             etName = FindViewById<EditText>(Resource.Id.etName);
             btnPlay = FindViewById<Button>(Resource.Id.btnPlay);
             btnScores = FindViewById<Button>(Resource.Id.btnScoreboard);
-
+            radAnimals = FindViewById<RadioButton>(Resource.Id.radAnimals);
+            radCountries = FindViewById<RadioButton>(Resource.Id.radCountries);
+            radGroup = FindViewById<RadioGroup>(Resource.Id.radCategory);
+            radGroup.CheckedChange += RadGroup_CheckedChange;
             btnPlay.Click += BtnPlay_Click;
             btnScores.Click += BtnScores_Click;
             etName.TextChanged += EtName_TextChanged;
+
+            SetCategory();
         }
 
         private void BtnScores_Click(object sender, EventArgs e)
@@ -49,6 +57,23 @@ namespace Project3Hangman
         {
             Player.name = etName.Text;
             StartActivity(typeof(HangmanActivity));
+        }
+
+        private void RadGroup_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
+        {
+            SetCategory();
+        }
+
+        private void SetCategory()
+        {
+            if (radAnimals.Checked == true)
+            {
+                Player.category = "ANIMALS";
+            }
+            if (radCountries.Checked == true)
+            {
+                Player.category = "COUNTRIES";
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Project3Hangman
         public static int score { get; set; } = 0;
         public static string outcome { get; set; }
         public static string theWord { get; set; }
+        public static string category { get; set; }
 
         static Player()
         {

@@ -48,11 +48,11 @@ namespace Project3Hangman
             }
         }
 
-        public static void AddItem(string name, int score)
+        public static void AddItem(string name, int score, string category)
         {
             try
             {
-                var addThis = new scores() { Name = name, Score = score };
+                var addThis = new scores() { Name = name, Score = score, Category = category };
                 db.Insert(addThis);
             }
             catch (Exception e)

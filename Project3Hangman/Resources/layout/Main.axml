@@ -3,75 +3,96 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/notepad"
-    android:padding="5dip"
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
         android:src="@drawable/hangman"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxHeight="100px"
         android:id="@+id/imgTitle"
         android:layout_centerHorizontal="true" />
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:layout_below="@id/imgTitle"
-        android:weightSum="5"
+        android:id="@+id/linearLayout3">
+        <ImageView
+            android:src="@drawable/hangman8"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView1" />
+        <Button
+            android:text="Scores"
+            android:id="@+id/btnScoreboard"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout3"
         android:id="@+id/linearLayout1">
         <TextView
             android:text="Name:"
             android:textColor="@color/abc_input_method_navigation_guard"
-            android:textSize="50px"
+            android:textSize="30px"
             android:id="@+id/textView1"
-            android:layout_weight="1"
             android:paddingLeft="30dip"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <EditText
             android:inputType="textPersonName"
-            android:layout_width="100dip"
-            android:layout_weight="4"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
+            android:layout_toEndOf="@id/textView1"
             android:id="@+id/etName" />
     </LinearLayout>
+    <RadioGroup
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/linearLayout1"
+        android:id="@+id/radCategory">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Animals"
+            android:id="@+id/radAnimals" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Countries"
+            android:id="@+id/radCountries" />
+    </RadioGroup>
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:id="@+id/linearLayout2"
-        android:layout_below="@id/linearLayout1"
-        android:layout_width="match_parent"
+        android:layout_below="@id/radCategory"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <Button
             android:text="Play Game"
             android:id="@+id/btnPlay"
             android:enabled="false"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_green_light"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_below="@id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:id="@+id/linearLayout3">
-        <Button
-            android:text="Scoreboard"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btnScoreboard" />
-        <Button
-            android:text="How To Play"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btnRules" />
     </LinearLayout>
 </RelativeLayout>
