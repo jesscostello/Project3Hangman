@@ -26,8 +26,8 @@ namespace Project3Hangman
             db = new SQLiteConnection(databasePath);
 
             db.CreateTable<scores>();
-            db.CreateTable<animals>();
-            db.CreateTable<countries>();
+            //db.CreateTable<animals>();
+            //db.CreateTable<countries>();
         }
         public static List<scores> ViewAll()
         {
@@ -50,19 +50,19 @@ namespace Project3Hangman
             }
         }
 
-        public static List<animals> ViewAllAnimalsScores()
+        public static List<scores> ViewAllAnimalsScores()
         {
             try
             {
-                return db.Query<animals>("SELECT * FROM animals ORDER BY score DESC");
+                return db.Query<scores>("SELECT * FROM scores WHERE Category = 'ANIMALS' ORDER BY score DESC");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error:" + e.Message);
                 //making some fake items to stop the system from crashing when the DB doesn't connect
-                List<animals> fakeitem = new List<animals>();
+                List<scores> fakeitem = new List<scores>();
                 //make a single item
-                animals item = new animals();
+                scores item = new scores();
                 item.Id = 1000;
                 item.Name = "No Scores Yet";
                 item.Score = 0;
@@ -71,19 +71,19 @@ namespace Project3Hangman
             }
         }
 
-        public static List<countries> ViewAllCountriesScores()
+        public static List<scores> ViewAllCountriesScores()
         {
             try
             {
-                return db.Query<countries>("SELECT * FROM countries ORDER BY score DESC");
+                return db.Query<scores>("SELECT * FROM scores WHERE Category = 'COUNTRIES' ORDER BY score DESC");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error:" + e.Message);
                 //making some fake items to stop the system from crashing when the DB doesn't connect
-                List<countries> fakeitem = new List<countries>();
+                List<scores> fakeitem = new List<scores>();
                 //make a single item
-                countries item = new countries();
+                scores item = new scores();
                 item.Id = 1000;
                 item.Name = "No Scores Yet";
                 item.Score = 0;

@@ -83,5 +83,11 @@ namespace Project3Hangman
             // go to scoreboard screen
             StartActivity(typeof(ScoreBoardActivity));
         }
+
+        public override bool OnKeyUp(Keycode Back, KeyEvent e)
+        {
+            return true;
+        }
+
     }
 }

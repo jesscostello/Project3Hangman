@@ -89,7 +89,6 @@
         <Button
             android:text="Play Game"
             android:id="@+id/btnPlay"
-            android:enabled="false"
             android:textColor="@android:color/black"
             android:background="@android:color/holo_green_light"
             android:layout_width="match_parent"

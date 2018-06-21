@@ -38,7 +38,6 @@ namespace Project3Hangman
             radGroup.CheckedChange += RadGroup_CheckedChange;
             btnPlay.Click += BtnPlay_Click;
             btnScores.Click += BtnScores_Click;
-            etName.TextChanged += EtName_TextChanged;
 
             SetCategory();
         }
@@ -48,15 +47,18 @@ namespace Project3Hangman
             StartActivity(typeof(ScoreBoardActivity));
         }
 
-        private void EtName_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
-        {
-            btnPlay.Enabled = true;
-        }
-
         private void BtnPlay_Click(object sender, EventArgs e)
         {
-            Player.name = etName.Text;
-            StartActivity(typeof(HangmanActivity));
+            string nameText = etName.Text;
+            if (nameText == string.Empty || nameText.Length > 3)
+            {
+                Toast.MakeText(this, "Please enter your name", ToastLength.Long).Show();
+            }
+            else
+            {
+                Player.name = etName.Text;
+                StartActivity(typeof(HangmanActivity));
+            }
         }
 
         private void RadGroup_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)

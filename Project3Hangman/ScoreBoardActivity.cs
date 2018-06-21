@@ -22,8 +22,8 @@ namespace Project3Hangman
         Button btnCountries;
         ListView lvHighScores;
         List<scores> myList;
-        List<animals> animalsList;
-        List<countries> countriesList;
+        //List<animals> animalsList;
+        //List<countries> countriesList;
         TextView txtHighScores;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -49,14 +49,14 @@ namespace Project3Hangman
 
         private void BtnCountries_Click(object sender, EventArgs e)
         {
-            countriesList = DataManager.ViewAllCountriesScores();
-            lvHighScores.Adapter = new DataCountries(this, countriesList); 
+            myList = DataManager.ViewAllCountriesScores();
+            lvHighScores.Adapter = new DataAdapter(this, myList); 
         }
 
         private void BtnAnimals_Click(object sender, EventArgs e)
         {
-            animalsList = DataManager.ViewAllAnimalsScores();
-            lvHighScores.Adapter = new DataAnimals(this, animalsList);
+            myList = DataManager.ViewAllAnimalsScores();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
         }
 
         private void BtnAll_Click(object sender, EventArgs e)
@@ -87,26 +87,6 @@ namespace Project3Hangman
             OnResume();
             ResetScores.Visibility = ViewStates.Gone;
         }
-
-        //public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
-        //{
-        //    if (keyCode == Keycode.Menu)
-        //    {
-        //        PopupMenu menu = new PopupMenu(this, StartNewGame);
-        //        menu.Inflate(Resource.Menu.menu);
-        //        menu.MenuItemClick += (s1, arg1) =>
-        //        {
-        //            // reset the scores
-        //            // delete everything from the scores table
-        //            DataManager.ResetScores();
-        //            // refresh
-        //            OnResume();
-        //        };
-        //        menu.Show();
-        //        return true;
-        //    }
-        //    return base.OnKeyUp(keyCode, e);
-        //}
 
         private void StartNewGame_Click(object sender, EventArgs e)
         {

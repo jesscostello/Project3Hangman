@@ -153,9 +153,18 @@ namespace Project3Hangman
                     while (!sr.EndOfStream)
                     {
                         var text = sr.ReadLine();
+
                         // only get lines with words on them, or with more than 4 letters
                         if (text != string.Empty && text.Length > 4) 
                         {
+                            text = text.Trim();
+                            
+                            //cut out the spaces
+                            if (text.Contains(" "))
+                            {
+                                text = text.Replace(" ", "");
+                            }
+
                             text = text.Trim();
 
                             if (text.Length > 4)
