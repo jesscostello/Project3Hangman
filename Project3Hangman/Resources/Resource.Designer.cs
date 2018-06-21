@@ -2387,8 +2387,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800ec
-			public const int actResetScores = 2131230956;
+			// aapt resource value: 0x7f0800ef
+			public const int actResetScores = 2131230959;
 			
 			// aapt resource value: 0x7f0800d0
 			public const int action0 = 2131230928;
@@ -2480,11 +2480,20 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800a6
 			public const int btnA = 2131230886;
 			
+			// aapt resource value: 0x7f0800e5
+			public const int btnAll = 2131230949;
+			
+			// aapt resource value: 0x7f0800e6
+			public const int btnAnimals = 2131230950;
+			
 			// aapt resource value: 0x7f0800a7
 			public const int btnB = 2131230887;
 			
 			// aapt resource value: 0x7f0800a8
 			public const int btnC = 2131230888;
+			
+			// aapt resource value: 0x7f0800e7
+			public const int btnCountries = 2131230951;
 			
 			// aapt resource value: 0x7f0800a9
 			public const int btnD = 2131230889;
@@ -2534,8 +2543,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800cc
 			public const int btnPlay = 2131230924;
 			
-			// aapt resource value: 0x7f0800e8
-			public const int btnPlayGame = 2131230952;
+			// aapt resource value: 0x7f0800eb
+			public const int btnPlayGame = 2131230955;
 			
 			// aapt resource value: 0x7f0800b8
 			public const int btnQ = 2131230904;
@@ -2543,8 +2552,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800b9
 			public const int btnR = 2131230905;
 			
-			// aapt resource value: 0x7f0800e7
-			public const int btnReset = 2131230951;
+			// aapt resource value: 0x7f0800ea
+			public const int btnReset = 2131230954;
 			
 			// aapt resource value: 0x7f0800ba
 			public const int btnS = 2131230906;
@@ -2741,8 +2750,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f0800a0
 			public const int linPlayerScore = 2131230880;
 			
-			// aapt resource value: 0x7f0800e6
-			public const int linRestart = 2131230950;
+			// aapt resource value: 0x7f0800e9
+			public const int linRestart = 2131230953;
 			
 			// aapt resource value: 0x7f0800ac
 			public const int linSecondRow = 2131230892;
@@ -2774,17 +2783,17 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800e5
-			public const int lvScores = 2131230949;
+			// aapt resource value: 0x7f0800e8
+			public const int lvScores = 2131230952;
 			
-			// aapt resource value: 0x7f0800eb
-			public const int masked = 2131230955;
+			// aapt resource value: 0x7f0800ee
+			public const int masked = 2131230958;
 			
 			// aapt resource value: 0x7f0800d3
 			public const int media_actions = 2131230931;
 			
-			// aapt resource value: 0x7f0800e9
-			public const int message = 2131230953;
+			// aapt resource value: 0x7f0800ec
+			public const int message = 2131230956;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -3071,8 +3080,8 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800ea
-			public const int visible = 2131230954;
+			// aapt resource value: 0x7f0800ed
+			public const int visible = 2131230957;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

@@ -17,8 +17,13 @@ namespace Project3Hangman
     {
         Button StartNewGame;
         Button ResetScores;
+        Button btnAll;
+        Button btnAnimals;
+        Button btnCountries;
         ListView lvHighScores;
         List<scores> myList;
+        List<animals> animalsList;
+        List<countries> countriesList;
         TextView txtHighScores;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,8 +36,31 @@ namespace Project3Hangman
             StartNewGame.Click += StartNewGame_Click;
             ResetScores = FindViewById<Button>(Resource.Id.btnReset);
             ResetScores.Click += ResetScores_Click;
+            btnAll = FindViewById<Button>(Resource.Id.btnAll);
+            btnAll.Click += BtnAll_Click;
+            btnAnimals = FindViewById<Button>(Resource.Id.btnAnimals);
+            btnAnimals.Click += BtnAnimals_Click;
+            btnCountries = FindViewById<Button>(Resource.Id.btnCountries);
+            btnCountries.Click += BtnCountries_Click;
             txtHighScores = FindViewById<TextView>(Resource.Id.txtHighScores);
             lvHighScores = FindViewById<ListView>(Resource.Id.lvScores);
+            DisplayScores();
+        }
+
+        private void BtnCountries_Click(object sender, EventArgs e)
+        {
+            countriesList = DataManager.ViewAllCountriesScores();
+            lvHighScores.Adapter = new DataCountries(this, countriesList); 
+        }
+
+        private void BtnAnimals_Click(object sender, EventArgs e)
+        {
+            animalsList = DataManager.ViewAllAnimalsScores();
+            lvHighScores.Adapter = new DataAnimals(this, animalsList);
+        }
+
+        private void BtnAll_Click(object sender, EventArgs e)
+        {
             DisplayScores();
         }
 

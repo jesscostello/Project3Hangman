@@ -26,6 +26,8 @@ namespace Project3Hangman
             db = new SQLiteConnection(databasePath);
 
             db.CreateTable<scores>();
+            db.CreateTable<animals>();
+            db.CreateTable<countries>();
         }
         public static List<scores> ViewAll()
         {
@@ -48,16 +50,77 @@ namespace Project3Hangman
             }
         }
 
-        public static void AddItem(string name, int score, string category)
+        public static List<animals> ViewAllAnimalsScores()
         {
             try
             {
-                var addThis = new scores() { Name = name, Score = score, Category = category };
-                db.Insert(addThis);
+                return db.Query<animals>("SELECT * FROM animals ORDER BY score DESC");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Add Error:" + e.Message);
+                Console.WriteLine("Error:" + e.Message);
+                //making some fake items to stop the system from crashing when the DB doesn't connect
+                List<animals> fakeitem = new List<animals>();
+                //make a single item
+                animals item = new animals();
+                item.Id = 1000;
+                item.Name = "No Scores Yet";
+                item.Score = 0;
+                fakeitem.AddRange(new[] { item }); //add it to the fake item list
+                return fakeitem;
+            }
+        }
+
+        public static List<countries> ViewAllCountriesScores()
+        {
+            try
+            {
+                return db.Query<countries>("SELECT * FROM countries ORDER BY score DESC");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:" + e.Message);
+                //making some fake items to stop the system from crashing when the DB doesn't connect
+                List<countries> fakeitem = new List<countries>();
+                //make a single item
+                countries item = new countries();
+                item.Id = 1000;
+                item.Name = "No Scores Yet";
+                item.Score = 0;
+                fakeitem.AddRange(new[] { item }); //add it to the fake item list
+                return fakeitem;
+            }
+        }
+
+        public static void AddItem(string name, int score, string category)
+        {
+            if (Player.category == "ANIMALS")
+            {
+                try
+                {
+                    var addThis = new scores() { Name = name, Score = score, Category = category };
+                    var addThisAsWell = new animals() { Name = name, Score = score };
+                    db.Insert(addThis);
+                    db.Insert(addThisAsWell);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Add Error:" + e.Message);
+                }
+            }
+            else if (Player.category == "COUNTRIES")
+            {
+                try
+                {
+                    var addThis = new scores() { Name = name, Score = score, Category = category };
+                    var addThisAsWell = new countries() { Name = name, Score = score };
+                    db.Insert(addThis);
+                    db.Insert(addThisAsWell);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Add Error:" + e.Message);
+                }
             }
         }
 
@@ -66,6 +129,8 @@ namespace Project3Hangman
             try
             {
                 db.Query<scores>("DELETE FROM scores");
+                db.Query<animals>("DELETE FROM animals");
+                db.Query<countries>("DELETE FROM countries");
             }
             catch (Exception e)
             {

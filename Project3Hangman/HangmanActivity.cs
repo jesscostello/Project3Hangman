@@ -325,8 +325,7 @@ namespace Project3Hangman
             {
                 gameScore = 0;
             }
-            Player.score = gameScore;
-            //Player.score = Player.score + currentScore;
+            Player.score = Player.score + gameScore;
         }
     }
 }

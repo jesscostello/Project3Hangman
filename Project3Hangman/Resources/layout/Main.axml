@@ -70,12 +70,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Animals"
+            android:text="Animals (Easy)"
             android:id="@+id/radAnimals" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Countries"
+            android:text="Countries (Hard)"
             android:id="@+id/radCountries" />
     </RadioGroup>
     <LinearLayout

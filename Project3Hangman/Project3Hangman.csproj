@@ -56,6 +56,10 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="animals.cs" />
+    <Compile Include="countries.cs" />
+    <Compile Include="DataAnimals.cs" />
+    <Compile Include="DataCountries.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Player.cs" />
