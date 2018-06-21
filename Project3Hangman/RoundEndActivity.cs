@@ -36,7 +36,6 @@ namespace Project3Hangman
 
             DisplayResultPicture();
             UpdateResult();
-            
         }
 
         private void DisplayResultPicture()
@@ -50,7 +49,6 @@ namespace Project3Hangman
                 image.SetImageResource(Resource.Drawable.loser);
                 btnNextWord.Visibility = ViewStates.Invisible;
             }
-            
         }
 
         private void UpdateResult()
@@ -63,7 +61,6 @@ namespace Project3Hangman
             {
                 txtview.Text = "Bad luck! Your score is: " + Player.score + "\nThe correct word was: " + Player.theWord;
             }
-            
         }
 
         private void nextWordClick(object sender, EventArgs e)
