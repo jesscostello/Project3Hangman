@@ -16,6 +16,7 @@ namespace Project3Hangman
 {
     public static class DataManager
     {
+        // set up properties for database connection
         public static SQLiteConnection db;
         public static string databasePath;
         public static string databaseName;
@@ -25,9 +26,11 @@ namespace Project3Hangman
             databaseName = "HangmanScores.db";
             databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
             db = new SQLiteConnection(databasePath);
-
             db.CreateTable<scores>();
         }
+        /// <summary>
+        /// SELECT * FROM scores ORDER BY score DESC
+        /// </summary>
         public static List<scores> ViewAll()
         {
             try
@@ -48,7 +51,9 @@ namespace Project3Hangman
                 return fakeitem;
             }
         }
-
+        /// <summary>
+        /// SELECT * FROM scores WHERE Category = 'ANIMALS' ORDER BY score DESC
+        /// </summary>
         public static List<scores> ViewAllAnimalsScores()
         {
             try
@@ -69,7 +74,9 @@ namespace Project3Hangman
                 return fakeitem;
             }
         }
-
+        /// <summary>
+        /// SELECT * FROM scores WHERE Category = 'COUNTRIES' ORDER BY score DESC
+        /// </summary>
         public static List<scores> ViewAllCountriesScores()
         {
             try
@@ -90,20 +97,27 @@ namespace Project3Hangman
                 return fakeitem;
             }
         }
-
+        /// <summary>
+        /// Add the score to the databae
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="score"></param>
+        /// <param name="category"></param>
         public static void AddItem(string name, int score, string category)
         {
             try
             {
                 var addThis = new scores() { Name = name, Score = score, Category = category };
                 db.Insert(addThis);
-                }
+            }
             catch (Exception e)
             {
                 Console.WriteLine("Add Error:" + e.Message);
             }
         }
-
+        /// <summary>
+        /// DELETE FROM scores
+        /// </summary>
         public static void ResetScores()
         {
             try

@@ -47,6 +47,7 @@ namespace Project3Hangman
             var view = convertView;
             if (view == null)
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomRowScore, null);
+                // Add players details from database to textviews
                 view.FindViewById<TextView>(Resource.Id.txtName).Text = item.Name;
                 view.FindViewById<TextView>(Resource.Id.txtScore).Text = item.Score.ToString();
                 view.FindViewById<TextView>(Resource.Id.txtCategory).Text = item.Category;

@@ -15,6 +15,7 @@ namespace Project3Hangman
     [Activity(Label = "High Scores", Theme = "@style/AppTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class ScoreBoardActivity : Activity
     {
+        // instantate fields
         Button StartNewGame;
         Button ResetScores;
         Button btnAll;
@@ -22,16 +23,14 @@ namespace Project3Hangman
         Button btnCountries;
         ListView lvHighScores;
         List<scores> myList;
-        //List<animals> animalsList;
-        //List<countries> countriesList;
         TextView txtHighScores;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            // set scoreboard layout
             SetContentView(Resource.Layout.ScoreBoard);
-
+            // bind fields to resource IDs and buttons to click events
             StartNewGame = FindViewById<Button>(Resource.Id.btnPlayGame);
             StartNewGame.Click += StartNewGame_Click;
             ResetScores = FindViewById<Button>(Resource.Id.btnReset);
@@ -46,28 +45,14 @@ namespace Project3Hangman
             lvHighScores = FindViewById<ListView>(Resource.Id.lvScores);
             DisplayScores();
         }
-
-        private void BtnCountries_Click(object sender, EventArgs e)
-        {
-            myList = DataManager.ViewAllCountriesScores();
-            lvHighScores.Adapter = new DataAdapter(this, myList); 
-        }
-
-        private void BtnAnimals_Click(object sender, EventArgs e)
-        {
-            myList = DataManager.ViewAllAnimalsScores();
-            lvHighScores.Adapter = new DataAdapter(this, myList);
-        }
-
-        private void BtnAll_Click(object sender, EventArgs e)
-        {
-            DisplayScores();
-        }
-
+        /// <summary>
+        /// Display a list of the scores
+        /// </summary>
         public void DisplayScores()
         {
             myList = DataManager.ViewAll();
             lvHighScores.Adapter = new DataAdapter(this, myList);
+            // "reset scores" button only shows if there are scores
             if (lvHighScores.Count >= 1)
             {
                 ResetScores.Visibility = ViewStates.Visible;
@@ -77,51 +62,54 @@ namespace Project3Hangman
                 ResetScores.Visibility = ViewStates.Gone;
             }
         }
-
+        /// <summary>
+        /// When user clicks all scores button
+        /// </summary>
+        private void BtnAll_Click(object sender, EventArgs e)
+        {
+            DisplayScores();
+        }
+        /// <summary>
+        /// When user clicks animals button
+        /// </summary>
+        private void BtnAnimals_Click(object sender, EventArgs e)
+        {
+            // show in the list only scores from the animals category
+            myList = DataManager.ViewAllAnimalsScores();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
+        }
+        /// <summary>
+        /// When user clicks countries button
+        /// </summary>
+        private void BtnCountries_Click(object sender, EventArgs e)
+        {
+            // show in the list only scores from the countries category
+            myList = DataManager.ViewAllCountriesScores();
+            lvHighScores.Adapter = new DataAdapter(this, myList);
+        }
+        /// <summary>
+        /// When user clicks reset scores button
+        /// </summary>
         private void ResetScores_Click(object sender, EventArgs e)
         {
-            //reset the scores
+            // reset the scores
             // delete everything from the scores table
             DataManager.ResetScores();
-            // refresh
+            // refresh the list
             OnResume();
             ResetScores.Visibility = ViewStates.Gone;
         }
-
+        /// <summary>
+        /// When user clicks start new game button
+        /// </summary>
         private void StartNewGame_Click(object sender, EventArgs e)
         {
+            // go back to intial main screen
             StartActivity(typeof(MainActivity));
         }
-
-        //public override bool OnCreateOptionsMenu(IMenu menu)
-        //{
-        //    MenuInflater.Inflate(Resource.menu.top_menus, menu);
-        //    return base.OnCreateOptionsMenu(menu);
-        //}
-
-        //public override bool OnOptionsItemSelected(IMenuItem item)
-        //{
-        //    Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-        //        ToastLength.Short).Show();
-        //    return base.OnOptionsItemSelected(item);
-        //}
-
-
-        ////When you choose Add from the Menu run the Add Activity. Good to know to add more options
-        //public override bool OnOptionsItemSelected(IMenuItem item)
-        //{
-        //    var itemTitle = item.TitleFormatted.ToString();
-
-        //    switch (itemTitle)
-        //    {
-        //        case "Add":
-        //            //StartActivity(typeof(AddItem));
-        //            Toast.MakeText(this, "Note Added", ToastLength.Long).Show();
-        //            break;
-        //    }
-        //    return base.OnOptionsItemSelected(item);
-        //}
-        //Basically reload stuff when the app resumes operation after being pauused
+        /// <summary>
+        /// Reload the screen when the app resumes
+        /// </summary>
         protected override void OnResume()
         {
             base.OnResume();
