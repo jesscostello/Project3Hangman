@@ -69,12 +69,6 @@
     <Compile Include="words.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Hangman.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AndroidAsset>
-    <AndroidAsset Include="Assets\H2.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AndroidAsset>
     <AndroidAsset Include="Assets\HangmanScores.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
