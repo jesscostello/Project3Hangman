@@ -2387,9 +2387,6 @@ namespace Project3Hangman
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800ef
-			public const int actResetScores = 2131230959;
-			
 			// aapt resource value: 0x7f0800d0
 			public const int action0 = 2131230928;
 			
@@ -3346,22 +3343,6 @@ namespace Project3Hangman
 			}
 			
 			private Layout()
-			{
-			}
-		}
-		
-		public partial class Menu
-		{
-			
-			// aapt resource value: 0x7f0e0000
-			public const int menu = 2131623936;
-			
-			static Menu()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Menu()
 			{
 			}
 		}

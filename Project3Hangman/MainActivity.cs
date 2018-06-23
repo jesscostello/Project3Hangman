@@ -83,7 +83,7 @@ namespace Project3Hangman
             // set a local variable to store the text in the name textbox
             string nameText = etName.Text;
             // if the textbox is empty or not the usual length of someone's name
-            if (nameText == string.Empty || nameText.Length > 3)
+            if (nameText == string.Empty || nameText.Length < 3)
             {
                 // Ask user to enter their name
                 Toast.MakeText(this, "Please enter your name", ToastLength.Long).Show();
